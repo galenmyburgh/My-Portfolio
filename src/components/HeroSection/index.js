@@ -39,10 +39,16 @@ const HeroSection = () => {
   });
 
   const texts = useMemo(() => [
-    "Full Stack Developer",
-    "UI/UX Designer", 
-    "Problem Solver",
-    "Creative Thinker",
+    "AI-First Developer",
+    "Automation Engineer",
+    "Mobile App Architect",
+    "Payments Integration Specialist",
+    "React & Flutter Expert",
+    "Supabase Solutions Builder",
+    "Cloud Platform Engineer",
+    "Technical Innovator",
+    "Product-Focused Coder",
+    "Python Visioneer"
   ], []);
 
   useEffect(() => {
