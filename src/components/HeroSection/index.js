@@ -111,11 +111,7 @@ const HeroSection = () => {
     { number: "100%", label: "Client Satisfaction" },
   ];
 
-  const socialLinks = [
-    { name: "GitHub", url: "https://github.com/galenmyburgh", icon: "🐙" },
-    { name: "LinkedIn", url: "https://linkedin.com/in/galenmyburgh", icon: "💼" },
-    { name: "Twitter", url: "https://twitter.com/galenmyburgh", icon: "🐦" },
-  ];
+
 
   return (
     <HeroContainer id="home">
@@ -143,84 +139,67 @@ const HeroSection = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <motion.div variants={itemVariants}>
-          <HeroName>
-            Hi, I'm{" "}
-            <span className="gradient-text">Galen Myburgh</span>
-          </HeroName>
-        </motion.div>
+        <div>
+          <motion.div variants={itemVariants}>
+            <HeroName>
+              Hi, I'm{" "}
+              <span className="gradient-text">Galen Myburgh</span>
+            </HeroName>
+          </motion.div>
 
-        <motion.div variants={itemVariants}>
-          <HeroTitle>
-            I'm a{" "}
-            <TypewriterContainer>
-              <TypewriterText>
-                <span className="gradient-text">{displayText}</span>
-                <span className="cursor">|</span>
-              </TypewriterText>
-            </TypewriterContainer>
-          </HeroTitle>
-        </motion.div>
+          <motion.div variants={itemVariants}>
+            <HeroTitle>
+              I'm a{" "}
+              <TypewriterContainer>
+                <TypewriterText>
+                  <span className="gradient-text">{displayText}</span>
+                  <span className="cursor">|</span>
+                </TypewriterText>
+              </TypewriterContainer>
+            </HeroTitle>
+          </motion.div>
 
-        <motion.div variants={itemVariants}>
-          <HeroP>
-            Passionate about creating innovative digital experiences that combine
-            cutting-edge technology with beautiful design. Let's build something
-            amazing together.
-          </HeroP>
-        </motion.div>
+          <motion.div variants={itemVariants}>
+            <HeroP>
+              Passionate about creating innovative digital experiences that combine
+              cutting-edge technology with beautiful design. Let's build something
+              amazing together.
+            </HeroP>
+          </motion.div>
 
-        <motion.div variants={itemVariants}>
-          <HeroStats>
-            {stats.map((stat, index) => (
-              <StatItem key={index}>
-                <StatNumber>{stat.number}</StatNumber>
-                <StatLabel>{stat.label}</StatLabel>
-              </StatItem>
-            ))}
-          </HeroStats>
-        </motion.div>
+          <motion.div variants={itemVariants}>
+            <HeroStats>
+              {stats.map((stat, index) => (
+                <StatItem key={index}>
+                  <StatNumber>{stat.number}</StatNumber>
+                  <StatLabel>{stat.label}</StatLabel>
+                </StatItem>
+              ))}
+            </HeroStats>
+          </motion.div>
 
-        <motion.div variants={itemVariants}>
-          <HeroBtnWrapper>
-            <HeroBtn
-              to="contact"
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact="true"
-              offset={-80}
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-            >
-              Get In Touch {hover ? <ArrowForward /> : <ArrowRight />}
-            </HeroBtn>
-          </HeroBtnWrapper>
-        </motion.div>
-
-        <motion.div variants={itemVariants}>
-          <HeroSocialLinks>
-            {socialLinks.map((link, index) => (
-              <SocialLink
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -5 }}
-                whileTap={{ scale: 0.95 }}
+          <motion.div variants={itemVariants}>
+            <HeroBtnWrapper>
+              <HeroBtn
+                to="contact"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
               >
-                <span role="img" aria-label={link.name}>
-                  {link.icon}
-                </span>
-              </SocialLink>
-            ))}
-          </HeroSocialLinks>
-        </motion.div>
+                Get In Touch {hover ? <ArrowForward /> : <ArrowRight />}
+              </HeroBtn>
+            </HeroBtnWrapper>
+          </motion.div>
+        </div>
 
         <motion.div variants={itemVariants}>
           <HeroImageContainer>
             <HeroImage
-              src="/gmTransparent.png"
+              src="/gmNew.jpg"
               alt="Galen Myburgh"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}

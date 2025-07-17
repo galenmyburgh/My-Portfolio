@@ -63,7 +63,7 @@ export const HeroContent = styled(motion.div)`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
   z-index: 1;
   
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -256,22 +256,25 @@ export const SocialLink = styled(motion.a)`
 
 export const HeroImageContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top: 2rem;
   
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    justify-content: center;
     order: -1;
   }
 `;
 
 export const HeroImage = styled(motion.img)`
-  max-width: 400px;
+  max-width: 300px;
   width: 100%;
   height: auto;
   filter: drop-shadow(0 20px 40px rgba(37, 99, 235, 0.2));
+  border-radius: 20px;
   
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    max-width: 300px;
+    max-width: 250px;
   }
 `;
 
