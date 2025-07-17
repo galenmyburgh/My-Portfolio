@@ -20,16 +20,16 @@ const Projects = ({openModal,setOpenModal}) => {
             <ToggleButton value="all" onClick={() => setToggle('all')}>All</ToggleButton>
           }
           <Divider />
-          {toggle === 'web app' ?
-            <ToggleButton active value="web app" onClick={() => setToggle('web app')}>Websites</ToggleButton>
+          {toggle === 'flutter' ?
+            <ToggleButton active value="flutter" onClick={() => setToggle('flutter')}>Flutter</ToggleButton>
             :
-            <ToggleButton value="web app" onClick={() => setToggle('web app')}>Websites</ToggleButton>
+            <ToggleButton value="flutter" onClick={() => setToggle('flutter')}>Flutter</ToggleButton>
           }
           <Divider />
-          {toggle === 'android app' ?
-            <ToggleButton active value="android app" onClick={() => setToggle('android app')}>Flutter</ToggleButton>
+          {toggle === 'react' ?
+            <ToggleButton active value="react" onClick={() => setToggle('react')}>React</ToggleButton>
             :
-            <ToggleButton value="android app" onClick={() => setToggle('android app')}>Flutter</ToggleButton>
+            <ToggleButton value="react" onClick={() => setToggle('react')}>React</ToggleButton>
           }
           <Divider />
           {toggle === 'flutterflow' ?
@@ -42,6 +42,12 @@ const Projects = ({openModal,setOpenModal}) => {
             <ToggleButton active value="python" onClick={() => setToggle('python')}>Python</ToggleButton>
             :
             <ToggleButton value="python" onClick={() => setToggle('python')}>Python</ToggleButton>
+          }
+          <Divider />
+          {toggle === 'wordpress' ?
+            <ToggleButton active value="wordpress" onClick={() => setToggle('wordpress')}>WordPress</ToggleButton>
+            :
+            <ToggleButton value="wordpress" onClick={() => setToggle('wordpress')}>WordPress</ToggleButton>
           }
         </ToggleButtonGroup>
         <CardContainer>

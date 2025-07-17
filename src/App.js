@@ -11,6 +11,7 @@ import HeroSection from "./components/HeroSection";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
+import ProjectDetails from "./components/ProjectDetails";
 import Education from "./components/Education";
 import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
@@ -35,6 +36,7 @@ const MainContent = styled.div`
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [openModal, setOpenModal] = useState({ state: false, project: null });
 
   useEffect(() => {
     // Initialize AOS
@@ -118,13 +120,18 @@ const App = () => {
               <HeroSection />
               <Skills />
               <Experience />
-              <Projects />
+              <Projects openModal={openModal} setOpenModal={setOpenModal} />
               <Education />
               <Certifications />
               <Contact />
               <Footer />
             </MainContent>
             <ScrollToTop />
+            <AnimatePresence>
+              {openModal.state && (
+                <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
+              )}
+            </AnimatePresence>
           </motion.div>
         </AnimatePresence>
       </AppContainer>

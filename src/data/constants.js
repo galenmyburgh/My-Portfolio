@@ -260,7 +260,7 @@ export const Bio = {
   export const experiences = [
     {
       id: 0,
-      img: "https://payflex.co.za/static/images/payflex-logo.svg",
+      img: "/pfIcon.svg",
       role: "Flutter Developer",
       company: "Payflex",
       date: "April 2024 - July 2024",
@@ -395,7 +395,7 @@ export const Bio = {
   export const education = [
   {
     id: 0,
-    img: "https://akademia.co.za/wp-content/uploads/2023/03/Akademia-Logo-2023.png",
+    img: "https://akademia.ac.za/wp-content/uploads/elementor/thumbs/Simbool-05-q374re2ym3cmf66qhldcrhx9mkyeh2lw8q3d0bzli0.png",
     school: "Akademia",
     date: "2023 – 2025 (In Progress)",
     grade: "In Progress",
@@ -416,7 +416,7 @@ export const Bio = {
 export const certifications = [
   {
     id: 0,
-    img: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Cloud-Practitioner_badge.3429557c682629172f6a13875eaffa7c22c2f187.png",
+    img: "https://images.credly.com/size/680x680/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
     school: "Amazon Web Services",
     date: "2024",
     grade: "Passed",
@@ -446,7 +446,79 @@ export const certifications = [
   
   export const projects = [
     {
-      id: 9,
+      id: 0,
+      title: "Payflex – Flutter Mobile App Rewrite",
+      date: "2024",
+      description:
+        "Led major improvements in the customer-facing Payflex app (400k+ downloads) during a full-time contract. Assisted in migrating the legacy codebase to Clean Architecture for modularity and long-term maintainability. Developed key user-facing features like the Store Directory module with dynamic Google Maps store markers. Improved app stability by over 40%, according to Firebase Crashlytics, through performance optimizations and bug resolution. Collaborated with cross-functional teams including .NET backend developers, QA, and design to ensure reliable feature delivery across Android and iOS.",
+      image: ["/pf_Screenshot.png"],
+      tags: ["Flutter", "Clean Architecture", "Firebase", "Google Maps", "Android", "iOS"],
+      category: "flutter",
+      github: "",
+      webapp: "",
+    },
+    {
+      id: 1,
+      title: "Tripleblue – Original FlutterFlow Web Platform",
+      date: "2024",
+      description:
+        "Maintained and extended Tripleblue's initial production platform built in FlutterFlow. Implemented new features, integrated APIs, and fixed critical issues such as native background audio recording and iOS-specific file persistence. Worked across both web and mobile versions, preparing the product for a full rewrite while keeping the original platform stable and functional.",
+      image: ["/tb_screenshots.png"],
+      tags: ["FlutterFlow", "Firebase", "Background Audio", "iOS", "Web"],
+      category: "flutterflow",
+      github: "",
+      webapp: "",
+    },
+    {
+      id: 2,
+      title: "Softechware – Custom SaaS & Web Platform",
+      date: "2024",
+      description:
+        "Rebuilt the Softechware corporate web platform using React, delivering a modern, responsive UX aligned with Figma designs. Integrated key modules like SaaS showcases, custom API integrations, and interactive service pathways.",
+      image: ["stw_screenshot.png"],
+      tags: ["React", "SaaS", "API Integration", "Responsive Web"],
+      category: "react",
+      github: "",
+      webapp: "https://softechware.co.za",
+    },
+    {
+      id: 3,
+      title: "Tripleblue – Web Platform Rebuilt in React (Next.js)",
+      date: "2024",
+      description:
+        "Rewrote Tripleblue's web application from FlutterFlow into a custom React + Next.js architecture using Supabase. Rebuilt all features from the low-code environment, implemented optimized data flows, and translated complex UI components from Figma into maintainable React code. Resulted in improved performance, better scalability, and complete separation of frontend logic and presentation.",
+      image: ["/tb_screenshots.png"],
+      tags: ["React", "Next.js", "Supabase", "TypeScript", "Figma"],
+      category: "react",
+      github: "",
+      webapp: "",
+    },
+    {
+      id: 4,
+      title: "Tripleblue – Flutter Mobile App Rewrite",
+      date: "2024",
+      description:
+        "Rebuilt the entire mobile platform in Flutter to replace the previous FlutterFlow version. Delivered full feature parity, including agenda syncing, background audio playback, offline storage, and a cleaner modular codebase. Ensured compatibility across Android and iOS, and collaborated with the design team to ensure pixel-perfect adherence to Figma.",
+      image: ["/tb_screenshots.png"],
+      tags: ["Flutter", "Background Audio", "Offline Storage", "Android", "iOS", "Figma"],
+      category: "flutter",
+      github: "",
+      webapp: "",
+    },
+    {
+      id: 5,
+      title: "Athlenote – FlutterFlow Sports Journaling App",
+      date: "2024",
+      description:
+        "Finalized and launched the Athlenote MVP on both iOS and Android in just 3 days. Fixed habit tracking bugs, completed backend logic, and configured app store deployments. Integrated RevenueCat for in-app subscriptions (with a 7-day free trial), and improved voice recording functionality by simplifying UX and adding length controls. Handled all production prep using FlutterFlow and Firebase, including testing, cleanup, and polish for app submission.",
+      image: ["athlenote_screenshot.jpg"],
+      tags: ["FlutterFlow", "Firebase", "RevenueCat", "Voice Recording", "iOS", "Android"],
+      category: "flutterflow",
+      github: "",
+      webapp: "",
+    },
+    {
+      id: 6,
       title: "CDOR",
       date: "July 2023",
       description:
@@ -454,12 +526,12 @@ export const certifications = [
       image:
        ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Fcdor_web-min.png?alt=media&token=7e8bab06-065c-4f67-aadd-c84aebf90d1e"],
       tags: ["WordPress","cPanel","Contact Form 7","Elementor"],
-      category: "web app",
+      category: "wordpress",
       github: "https://github.com/rishavchanda/Trackify",
       webapp: "https://cdor.co.za",
     },
     {
-      id: 0,
+      id: 7,
       title: "Zwarrie Invest",
       date: "January 2024",
       description:
@@ -467,26 +539,12 @@ export const certifications = [
       image:
         ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Fzinvest_web-min.png?alt=media&token=668839ae-bb82-4110-b8ed-b3d50696f9a3"],
       tags: ["WordPress","cPanel","Contact Form 7","Elementor"],
-      category: "web app",
+      category: "wordpress",
       github: "https://github.com/rishavchanda/Podstream",
       webapp: "https://zwarrieinvest.co.za",
-      // member: [
-      //   {
-      //     name: "Rishav Chanda",
-      //     img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-      //     linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-      //     github: "https://github.com/rishavchanda/",
-      //   },
-      //   {
-      //     name: "Upasana Chaudhuri",
-      //     img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-      //     linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-      //     github: "https://github.com/upasana0710",
-      //   },
-      // ],
     },
     {
-      id: 1,
+      id: 8,
       title: "Du Plessis & Du Plessis",
       date: "January 2024",
       description:
@@ -494,12 +552,38 @@ export const certifications = [
       image:
         ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Fdupdup_web-min.png?alt=media&token=0a62c0bb-6493-4b5e-8de3-7b9ba644b219"],
       tags: ["WordPress","cPanel","Contact Form 7","Elementor"],
-      category: "web app",
+      category: "wordpress",
       github: "https://github.com/rishavchanda/Project-Management-App",
       webapp: "https://www.dupdup.co.za",
     },
     {
-      id: 2,
+      id: 9,
+      title: "EAV Fire",
+      date: "July 2023",
+      description:
+        "Responsive WordPress 5-Pager site info site for EAV Fire displaying their services with a gallery of their work and a Contact Form",
+      image:
+        ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Feavfire_web-min.png?alt=media&token=b07f523b-6768-44fb-b46c-07131af62a44"],
+      tags: ["WordPress","cPanel"],
+      category: "wordpress",
+      github: "https://github.com/rishavchanda/Whatsapp-Clone-React-Js",
+      webapp: "https://whatsapp-clone-rishav.web.app",
+    },
+    {
+      id: 10,
+      title: "Bester Barrows",
+      date: "February 2021",
+      description:
+        "Interactive WordPress site, linked with QR-Codes attached to their products, each product linked with it's own page and QR-Code",
+      image:
+        ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Fbb_web-min.png?alt=media&token=c1577e70-2ca7-4a22-b997-5e00eb055d13"],
+      tags: ["WordPress","cPanel","Contact Form 7","Divi"],
+      category: "wordpress",
+      github: "https://github.com/rishavchanda/Todo-Web-App",
+      webapp: "https://rishav-react-todo.netlify.app/",
+    },
+    {
+      id: 11,
       title: "CDOR - Stock Management",
       date: "July 2023 - January 2024",
       description:
@@ -513,81 +597,13 @@ export const certifications = [
       category: "flutterflow",
       github: "https://github.com/rishavchanda/Brain-Tumor-Detection",
       webapp: "https://brain-tumor.netlify.app/",
-      // member: [
-      //   {
-      //     name: "Rishav Chanda",
-      //     img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-      //     linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-      //     github: "https://github.com/rishavchanda/",
-      //   },
-      //   {
-      //     name: "Upasana Chaudhuri",
-      //     img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-      //     linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-      //     github: "https://github.com/upasana0710",
-      //   },
-      // ],
-    },
-    // {
-    //   id: 3,
-    //   title: "Buckoid",
-    //   date: "Dec 2021 - Apr 2022",
-    //   description:
-    //     "App Is Currently In Playstore 100+ Downloads. This Project proposes an "Expense Tracking App". Keep track of your personal expenses and compare them to your monthly income with the budget planner. It has Google Drive Cloud API for Backup of User Room Database. Made with Kotlin in MVVM Architecture & Live Data.",
-    //   image:
-    //     "https://camo.githubusercontent.com/fbf405040ae86b5d4a40f24e4ac034982cb8c0e2d850560ba64527997b258be8/68747470733a2f2f666972656261736573746f726167652e676f6f676c65617069732e636f6d2f76302f622f6c6f67696e2d65613565322e61707073706f742e636f6d2f6f2f4255434b4f49442532302831292e706e673f616c743d6d6564696126746f6b656e3d32653735376235372d323964372d346263612d613562322d653164346538313432373435",
-    //   tags: ["Kotlin", "MVVM", "Room Database", "Google Drive Cloud API"],
-    //   category: "android app",
-    //   github: "https://github.com/rishavchanda/Buckoid-Android-App",
-    //   webapp: "https://play.google.com/store/apps/details?id=com.rishav.buckoid",
-    // },
-    // {
-    //   id: 10,
-    //   title: "Job Finding App",
-    //   date: "Jun 2023 - Jul 2023",
-    //   description:
-    //     "A Job Finding App made with React Native, Axios. Users can search for any job coming from API and apply there.",
-    //   image:
-    //     ["https://user-images.githubusercontent.com/64485885/255237090-cf798a2c-1b41-4bb7-b904-b5353a1f08e8.png"],
-    //   tags: ["React Native", "JavaScript", "Axios"],
-    //   category: "android app",
-    //   github: "https://github.com/rishavchanda/Job-finder-App",
-    //   webapp: "https://github.com/rishavchanda/Job-finder-App",
-    // },
-    {
-      id: 4,
-      title: "EAV Fire",
-      date: "July 2023",
-      description:
-        "Responsive WordPress 5-Pager site info site for EAV Fire displaying their services with a gallery of their work and a Contact Form",
-      image:
-        ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Feavfire_web-min.png?alt=media&token=b07f523b-6768-44fb-b46c-07131af62a44"],
-      tags: ["WordPress","cPanel"],
-      category: "web app",
-      github: "https://github.com/rishavchanda/Whatsapp-Clone-React-Js",
-      webapp: "https://whatsapp-clone-rishav.web.app",
     },
     {
-      id: 5,
-      title: "Bester Barrows",
-      date: "February 2021",
-      description:
-        "Interactive WordPress site, linked with QR-Codes attached to their products, each product linked with it's own page and QR-Code",
-      image:
-        ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Fbb_web-min.png?alt=media&token=c1577e70-2ca7-4a22-b997-5e00eb055d13"],
-      tags: ["WordPress","cPanel","Contact Form 7","Divi"],
-      category: "web app",
-      github: "https://github.com/rishavchanda/Todo-Web-App",
-      webapp: "https://rishav-react-todo.netlify.app/",
-    },
-    {
-      id: 6,
+      id: 12,
       title: "Mewzo",
       date: "Jun 2021",
       description:
         "This Marketplace app layed my foundation for using different API calls for completing payments with Payment Gateways.",
-      // titleImage:
-        // "https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2Fmewzo_ff_1.png?alt=media&token=e7586259-b2b6-40f7-b968-7a13139fd6aa",
       image:
         ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2Fmewzo_1.png?alt=media&token=d2412b70-6d42-437c-8cdf-a229e33e89d5",
         "https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2Fmewzo_pay_1.PNG?alt=media&token=ebeb4044-7d2c-4926-912d-d87dfce9acd5",
@@ -599,21 +615,8 @@ export const certifications = [
       github: "https://github.com/rishavchanda/Breaking-Bad",
       webapp: "https://breaking-bad-webapp.netlify.app",
     },
-    // {
-    //   id: 7,
-    //   title: "Quiz App",
-    //   date: "Dec 2020 - Jan 2021",
-    //   description:
-    //     "A android quiz app made with Java and Firebase. It has a login page where users can log in with their Google account. It has a sidebar where users can see all the quiz categories and can create a new quiz. It has a leaderboard where users can see the top 10 scorers. It has a search bar where users can search for a particular quiz.",
-    //   image:
-    //     ["https://github-production-user-asset-6210df.s3.amazonaws.com/64485885/239726262-c1b061d1-d9d0-42ef-9f1c-0412d14bc4f6.gif"],
-    //   tags: ["Java", "Android Studio", "Firebase", "Google Auth"],
-    //   category: "android app",
-    //   github: "https://github.com/rishavchanda/Quiz-Earn",
-    //   webapp: "https://github.com/rishavchanda/Quiz-Earn",
-    // },
     {
-      id: 8,
+      id: 13,
       title: "CW Guard Management",
       date: "March 2023",
       description:
@@ -627,6 +630,18 @@ export const certifications = [
       category: "flutterflow",
       github: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
       webapp: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
+    },
+    {
+      id: 14,
+      title: "Camera Analytics Platform (Python + OpenCV)",
+      date: "2024",
+      description:
+        "Developed a smart camera analytics platform using Python and OpenCV for real-time motion detection, object recognition, and event-based alerts. Built a backend dashboard to visualize analytics, track incidents, and monitor camera health. Integrated the solution for edge devices and SME security systems, enabling rapid insights and live monitoring for end users.",
+      image: ["/cwGuardingPlatform_screenshot.png"],
+      tags: ["Python", "OpenCV", "Computer Vision", "Analytics", "IoT", "Surveillance"],
+      category: "python",
+      github: "",
+      webapp: "",
     },
     // {
     //   id: 11,
