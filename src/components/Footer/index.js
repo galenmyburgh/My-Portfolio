@@ -103,7 +103,7 @@ function Footer() {
           <SocialMediaIcon href={Bio.insta} target="display"><InstagramIcon /></SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2024 Galen Myburgh. All rights reserved.
+          &copy; 2025 Galen Myburgh. All rights reserved.
         </Copyright>
 
       </FooterWrapper>
