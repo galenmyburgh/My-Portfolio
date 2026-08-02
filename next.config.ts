@@ -1,13 +1,6 @@
-import path from "node:path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // The repo still contains the old CRA app and its lockfile. Pin the root so
-  // Turbopack doesn't infer the parent directory. Remove once CRA is gone.
-  turbopack: {
-    root: path.resolve(process.cwd()),
-  },
-
   images: {
     // AVIF first — roughly 20% smaller than WebP on the photographic content
     // here, and every browser we support falls back cleanly.

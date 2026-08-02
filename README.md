@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="portfolio-next/public/logos/codelyn.svg" width="76" alt="" />
+<img src="public/logos/codelyn.svg" width="76" alt="" />
 
 # galenmyburgh.com
 
@@ -47,7 +47,7 @@ The clearest expression of that is the hero. It looks like an ornamental particl
 - Every edge is a **real** relationship from one of the case studies — `Flutter → NFC → Payments` traces the Batsamayi wallet; `Python → OpenCV → Computer Vision` traces the camera analytics work.
 - **Clicking a node filters the case studies below it.**
 
-Adding one entry to [`src/content/tech.ts`](portfolio-next/src/content/tech.ts) makes a technology appear as a constellation node, a filter chip and a tag — one colour, everywhere, from one source of truth.
+Adding one entry to [`src/content/tech.ts`](src/content/tech.ts) makes a technology appear as a constellation node, a filter chip and a tag — one colour, everywhere, from one source of truth.
 
 ## Things worth opening DevTools for
 
@@ -92,7 +92,6 @@ Adding one entry to [`src/content/tech.ts`](portfolio-next/src/content/tech.ts) 
 ## Running it
 
 ```bash
-cd portfolio-next
 npm install
 npm run dev
 ```
@@ -104,7 +103,7 @@ npm run dev
 | `npm run check` | Typecheck → lint → build |
 | `npm run audit:a11y` | axe on every route, both themes, non-zero exit on any violation |
 
-Full detail in [`portfolio-next/README.md`](portfolio-next/README.md).
+Full detail in [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md).
 
 ## Two budgets I didn't hit
 
@@ -118,12 +117,13 @@ Both are framework weight. Fixing them is a framework conversation, not a tuning
 ## Repo layout
 
 ```
-portfolio-next/          The site
-  src/content/           All copy, as typed data — tech graph, case studies, career
-  src/components/        UI, including the three constellation renderers
-  src/lib/               Deterministic layout, capability detection, site config
-  scripts/a11y.mjs       The accessibility gate
-src/, public/            The previous Create React App site, kept until cutover
+src/app/           Routes — App Router
+src/content/       All copy, as typed data — tech graph, case studies, career
+src/components/    UI, including the three constellation renderers
+src/lib/           Deterministic layout, capability detection, site config
+scripts/a11y.mjs   The accessibility gate
+public/logos/      Company marks, served locally rather than hotlinked
+docs/              Developer documentation
 ```
 
 <div align="center">
