@@ -39,13 +39,14 @@ export type Edge = { from: Node; to: Node };
  * technologies sit near each other and the edges between them stay short —
  * a random scatter produces a hairball, which reads as decoration.
  */
-const clusterAngles: Record<string, number> = {
-  mobile: -Math.PI / 2,
-  web: -Math.PI / 10,
-  data: Math.PI / 2.6,
-  cloud: Math.PI - Math.PI / 4,
-  ai: Math.PI + Math.PI / 6,
-};
+const CLUSTER_ORDER = ["mobile", "web", "data", "cloud", "ai", "hardware"] as const;
+
+// Evenly spaced around the centre, starting at the top. Derived rather than
+// hand-tuned so adding a category re-balances the whole layout instead of
+// dropping a cluster on top of an existing one.
+const clusterAngles: Record<string, number> = Object.fromEntries(
+  CLUSTER_ORDER.map((id, i) => [id, -Math.PI / 2 + (i * 2 * Math.PI) / CLUSTER_ORDER.length])
+);
 
 export function buildConstellation(): { nodes: Node[]; edges: Edge[] } {
   const rand = seeded(20260802);

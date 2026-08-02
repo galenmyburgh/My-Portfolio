@@ -21,15 +21,48 @@ export type Role = {
 
 export const roles: Role[] = [
   {
-    id: "tripleblue",
+    id: "tripleblue-fullstack",
     company: "Tripleblue",
     title: "Full-Stack Developer",
-    start: "May 2024",
+    start: "July 2025",
     end: "Present",
     current: true,
     logo: "/logos/tripleblue.svg",
     summary:
-      "Rebuilt Tripleblue's web and mobile products off FlutterFlow onto a custom Next.js and Flutter stack backed by Supabase, while keeping the original platform live and shipping.",
+      "Moved onto Tripleblue's AI products — the knowledge agent and AI Notes — alongside the German DMS counterpart and the AI note-taking mobile app.",
+    highlights: [
+      "Improving the AI Knowledge Agent",
+      "Feature work on AI Notes",
+      "Assisted in building the DMS Germany counterpart",
+      "Maintaining the AI note-taking mobile app",
+    ],
+    stack: ["flutter", "react", "nextjs", "supabase", "typescript", "aiagents"],
+  },
+  {
+    id: "codelyn",
+    company: "Codelyn (Pty) Ltd",
+    title: "Founder & Freelance Developer",
+    start: "April 2025",
+    end: "January 2026",
+    summary:
+      "My own company, contracting to four clients across mobile, hardware integration and payments — including NFC card readers, ESP-based industrial control and a UK field-service app.",
+    highlights: [
+      "Firebrain (Softechware) — mobile app, web app and backend, shutting down fire pumps from the phone via an ESP module, with WhatsApp alerts to on-call technicians",
+      "Batsamayi — paired physical NFC card readers to a Flutter app for a cashless wallet that works without connectivity",
+      "Fix Glass (UK) — added Maps and turn-by-turn navigation to the Flutter app their windscreen technicians use in the field",
+      "Bowlsmaster — feature work and improvements on their Flutter app",
+    ],
+    stack: ["flutter", "dart", "nfc", "esp", "iot", "maps", "whatsapp", "payments", "firebase"],
+  },
+  {
+    id: "tripleblue-frontend",
+    company: "Tripleblue",
+    title: "Frontend Developer",
+    start: "May 2024",
+    end: "July 2025",
+    logo: "/logos/tripleblue.svg",
+    summary:
+      "Rebuilt Tripleblue's web and mobile products off FlutterFlow onto a custom Next.js and Flutter stack, while keeping the original platform live and shipping.",
     highlights: [
       "Rewrote the web app in React/Next.js with a Supabase backend, replacing the low-code original",
       "Rewrote the mobile app in Flutter at full feature parity — agenda sync, background audio, offline storage",
@@ -115,12 +148,23 @@ export type Study = {
 
 export const education: Study[] = [
   {
+    id: "up-honours",
+    institution: "University of Pretoria",
+    qualification: "BSc Honours, Computer Science",
+    start: "2026",
+    end: "Present",
+    result: "In progress",
+    detail:
+      "Specialising toward digital forensics and cyber security alongside advanced computer science coursework.",
+    logo: "/logos/up.png",
+  },
+  {
     id: "akademia",
     institution: "Akademia",
     qualification: "BSc Computer Science",
     start: "2023",
     end: "2025",
-    result: "In progress",
+    result: "Completed",
     detail:
       "Software development, algorithms, databases, cloud computing and systems architecture.",
     logo: "/logos/akademia.png",
@@ -171,5 +215,50 @@ export const certifications: Study[] = [
 export const stats = [
   { value: "400k+", label: "Downloads on apps I've shipped to" },
   { value: "5", label: "Years shipping Flutter in production" },
-  { value: "6", label: "Case studies you can read in full" },
+  { value: "10", label: "Products delivered for clients" },
 ] as const;
+
+/**
+ * Freelance engagements through Codelyn.
+ *
+ * Deliberately *not* full case studies. A case study in `work.ts` has to answer
+ * what was hard and what changed, and inventing those answers would be worse
+ * than showing breadth honestly. Promote any of these to `work.ts` once the
+ * write-up exists.
+ */
+export type Engagement = {
+  id: string;
+  client: string;
+  summary: string;
+  stack: string[];
+};
+
+export const engagements: Engagement[] = [
+  {
+    id: "firebrain",
+    client: "Firebrain (Softechware)",
+    summary:
+      "Mobile app, web app and backend for an industrial fire-pump system. Technicians shut pumps down from the app via an ESP module on the hardware, and WhatsApp alerts route to whoever is on call.",
+    stack: ["flutter", "esp", "iot", "whatsapp", "firebase", "nodejs"],
+  },
+  {
+    id: "batsamayi",
+    client: "Batsamayi",
+    summary:
+      "A cashless payments app built on physical NFC cards. I paired the card hardware to the Flutter app and set up wallets that hold and settle value on the device, so a transaction does not need connectivity to complete.",
+    stack: ["flutter", "nfc", "payments", "dart"],
+  },
+  {
+    id: "fixglass",
+    client: "Fix Glass (UK)",
+    summary:
+      "Field-service app for windscreen technicians. I improved the existing Flutter app and added Maps with turn-by-turn navigation, so technicians route between jobs from inside the app rather than switching to another one.",
+    stack: ["flutter", "maps", "ios", "android"],
+  },
+  {
+    id: "bowlsmaster",
+    client: "Bowlsmaster",
+    summary: "Feature work and improvements on their Flutter application.",
+    stack: ["flutter", "dart"],
+  },
+];

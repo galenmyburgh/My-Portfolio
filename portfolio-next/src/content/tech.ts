@@ -16,6 +16,7 @@ export const categories = {
   mobile: { label: "Mobile", color: "var(--cat-mobile)" },
   web: { label: "Web", color: "var(--cat-web)" },
   data: { label: "Data & backend", color: "var(--cat-data)" },
+  hardware: { label: "Hardware & IoT", color: "var(--cat-hardware)" },
   cloud: { label: "Cloud & tooling", color: "var(--cat-cloud)" },
   ai: { label: "AI & automation", color: "var(--cat-ai)" },
 } as const;
@@ -41,6 +42,13 @@ export const tech: Tech[] = [
   { id: "java", name: "Java", category: "mobile", weight: 3, note: "Android before Kotlin. Still the fallback for legacy modules." },
   { id: "swift", name: "Swift", category: "mobile", weight: 2, note: "Enough to debug and patch the native iOS side of a Flutter app." },
   { id: "revenuecat", name: "RevenueCat", category: "mobile", weight: 3, note: "Subscriptions and entitlements on Athlenote, across both stores." },
+  { id: "maps", name: "Maps & navigation", category: "mobile", weight: 4, note: "Payflex store directory, and turn-by-turn routing for Fix Glass technicians in the UK." },
+
+  // --- Hardware & IoT -----------------------------------------------------
+  { id: "nfc", name: "NFC", category: "hardware", weight: 4, note: "Paired physical NFC card readers to a Flutter app for Batsamayi's cashless wallet." },
+  { id: "esp", name: "ESP modules", category: "hardware", weight: 3, note: "Firebrain: shutting down industrial fire pumps from a phone, through an ESP module on the hardware." },
+  { id: "iot", name: "IoT integration", category: "hardware", weight: 3, note: "Getting apps and physical equipment to agree with each other, reliably, in the field." },
+  { id: "offlinefirst", name: "Offline-first", category: "hardware", weight: 4, note: "Wallets that settle on-device and apps that keep working when the signal doesn't." },
 
   // --- Web ----------------------------------------------------------------
   { id: "react", name: "React", category: "web", weight: 5, note: "Component architecture, hooks, the parts of rendering that bite." },
@@ -65,6 +73,7 @@ export const tech: Tech[] = [
   { id: "rest", name: "REST APIs", category: "data", weight: 5, note: "Consuming, designing and debugging them. Most integration work lives here." },
   { id: "payments", name: "Payments", category: "data", weight: 4, note: "Payflex BNPL, Paystack checkout, RevenueCat subscriptions. Money is unforgiving." },
   { id: "paystack", name: "Paystack", category: "data", weight: 3, note: "Full checkout integration on Mewzo — the first time I handled real money." },
+  { id: "whatsapp", name: "WhatsApp API", category: "data", weight: 3, note: "Firebrain alerts: routing fire-pump events to whichever technician is actually on call." },
 
   // --- Cloud & tooling ----------------------------------------------------
   { id: "aws", name: "AWS", category: "cloud", weight: 2, note: "Certified Cloud Practitioner. Core services, pricing and the security model." },
@@ -78,6 +87,7 @@ export const tech: Tech[] = [
   // --- AI & automation ----------------------------------------------------
   { id: "opencv", name: "OpenCV", category: "ai", weight: 3, note: "Real-time motion detection and object recognition on edge devices." },
   { id: "cv", name: "Computer Vision", category: "ai", weight: 3, note: "The camera analytics platform: detection, alerting, camera health." },
+  { id: "aiagents", name: "AI agents", category: "ai", weight: 4, note: "Tripleblue's knowledge agent and AI Notes — building AI into the product, not around it." },
   { id: "aitools", name: "AI-assisted dev", category: "ai", weight: 4, note: "Cursor and Claude in the daily loop — for leverage, not for autopilot." },
   { id: "automation", name: "Automation", category: "ai", weight: 4, note: "Buildship flows, scheduled reconciliation, generated SQL views." },
 ];
@@ -103,6 +113,21 @@ export const techEdges: ReadonlyArray<readonly [string, string]> = [
   ["ios", "swift"],
   ["ios", "revenuecat"],
   ["revenuecat", "payments"],
+  ["maps", "flutter"],
+  ["maps", "android"],
+
+  // Hardware — the Codelyn contracts. Flutter talking to physical equipment.
+  ["nfc", "flutter"],
+  ["nfc", "payments"],
+  ["nfc", "offlinefirst"],
+  ["esp", "iot"],
+  ["esp", "whatsapp"],
+  ["iot", "flutter"],
+  ["iot", "automation"],
+  ["offlinefirst", "flutter"],
+  ["offlinefirst", "supabase"],
+  ["whatsapp", "rest"],
+  ["whatsapp", "cloudfunctions"],
 
   ["react", "javascript"],
   ["react", "nextjs"],
@@ -134,6 +159,10 @@ export const techEdges: ReadonlyArray<readonly [string, string]> = [
   ["python", "automation"],
   ["automation", "aitools"],
   ["aitools", "typescript"],
+  ["aiagents", "nextjs"],
+  ["aiagents", "flutter"],
+  ["aiagents", "supabase"],
+  ["aiagents", "aitools"],
 
   ["docker", "netlify"],
   ["git", "netlify"],

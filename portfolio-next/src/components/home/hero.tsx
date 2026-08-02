@@ -43,9 +43,9 @@ export function Hero({ studies }: { studies: WorkCardData[] }) {
 
             <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
               Five years shipping Flutter and React — a buy-now-pay-later app used by
-              hundreds of thousands of people, a product migrated off low-code without
-              losing a feature, and payment flows where being approximately right is the
-              same as being wrong.
+              hundreds of thousands of people, a cashless wallet that settles on an NFC
+              card with no signal, and the AI products I work on now. Mostly the kind of
+              system where being approximately right is the same as being wrong.
             </p>
 
             <ul className="mt-6 flex flex-wrap gap-2">

@@ -226,6 +226,24 @@ export const Bio = {
   
   export const experiences = [
     {
+      id: 5,
+      img: "/pfIcon.svg",
+      role: "Full-Stack Developer",
+      company: "Tripleblue",
+      date: "July 2025 - Present",
+      desc: "Working across Tripleblue's AI products: improving the AI Knowledge Agent, feature work on AI Notes, assisting in building the DMS Germany counterpart, and maintaining the AI note-taking mobile app.",
+      skills: ["Flutter", "React", "Next.js", "Supabase", "TypeScript", "AI Agents"],
+    },
+    {
+      id: 6,
+      img: "/pfIcon.svg",
+      role: "Founder & Freelance Developer",
+      company: "Codelyn (Pty) Ltd",
+      date: "April 2025 - January 2026",
+      desc: "My own company, contracting to four clients across mobile, hardware integration and payments. Firebrain (Softechware): built the mobile app, web app and backend for an industrial fire-pump system, shutting pumps down from the phone through an ESP module and routing WhatsApp alerts to on-call technicians. Batsamayi: paired physical NFC card readers to a Flutter app for a cashless wallet that settles on-device without connectivity. Fix Glass (UK): improved the Flutter app used by windscreen technicians and added Maps with turn-by-turn navigation. Bowlsmaster: feature work on their Flutter app.",
+      skills: ["Flutter", "Dart", "NFC", "ESP Modules", "IoT", "Google Maps", "WhatsApp API", "Firebase", "Offline-first"],
+    },
+    {
       id: 0,
       img: "/pfIcon.svg",
       role: "Flutter Developer",
@@ -248,9 +266,9 @@ export const Bio = {
     {
       id: 1,
       img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABcCAMAAADUMSJqAAAAkFBMVEX///8AFlAAAD8AAEQAAEGmqbcAFE/P0dbq7O8AAEfAw8wAADsAAEkACk/y8/SSkqOOlKcAEU7c29wSHlAADU1ydY+MjJsxOGEAADa3ucYAADPV2N2Ym6l+gZi4vMU7QWVKTmwAAC3g4eZjZ4FESWt1e48MGEwaJFWCh5klLl1OVXVaX3wAACcAAU4qMFppboVgB2CFAAADZUlEQVRoge2X23qiMBRGyYFDSBQyxYqChwJaD+30/d9udqItCKEfNL2YC9aVH8KChJ39B8eZmJiYmJiY+N/JfDuCXnNREkItqUKze5UKD9mS8IPRza3NGvrRdc9ffseNUNqdmZyoP5jdjBMPJjapOvJdgpDHnkMr3KN6a6xdM/NXCUfL3koaiKvGj/+05U8gF88918QUP5Ks9PHAzbOHE0MKcj5KnnOvhVwr6RZusz41z/THy8/wPkgDAaeCs6DsUjJ8iGoW8BcS+sizP0wuPcTcBieBxMJxIlyqKhOsRuhifFc/eT5MDgXGW4NX8g2O9O/2nN0gP5SHN/kWP4XZTohkZqIpR7MkIePkTgVFRFgx76GW76uq2uVtbY8cC6bkzmm5LOfmawbTffLF2Xa9ZbkbGOWFuoHxkmClGDCYwwuska1J7rjXk/ESJ3yB9vVWLyI/MnPA4qMiVD27bMljLujVLG+tUJczodBroIYJ6jrOFbvqySXCTUUioYEa47Ijp6rkb32+uQgQhfbxjGM45TpD8vVQzzK0Z+kZJ7Yrl4DWwxPKT7x3ti9CjyvlNvWQFFwswpvRx3ztDpoWRxd88OTpblQvgYIReKEXfcqJUgZTIah31aUQhIXRPbzlBuXf5dcBf7PELEEeIenF7d+djOjnj9OaReeUJR6aUVzlPf4fhMU8Xtyac5HvCJ0hLyFPt8G5rnUSnal4+ayVwr2kBHl6da0w5+uHa3w8Vu7Ddml2aZwbMUgbuA8W+1LgQ/y18OJbEm2iOIrjYUmUrWFj0NxH3VtuxFUSsW4SiTFJVHKKm7V3l2/U9dZJ5Pjbh8L5TCJ+DItKCGMQzWhDfvwmiaAF5k37ZxLt1Q5OWCYRS9M3w5OrJPr78ftJdJdbkLnufKR8cBKd1phTYxL1yztJFJuBJCorQYJx8nY/T5kRQeokMu+4hsip/IqihyTC0JNinUTQCuWywVkOlpMEkFInkUy+eGeXIkQ6iS4zVEeUAja95qodnET6m1T3K583o1tBjuaKGJVE9+1JcVo8kvdUW/hNyzV+oI5hS0zy+9fcNrAig1cNOdtJ743+DiXYDlUWybIzoODXvqCxYUsT499xk53pZWz0oCyRtDIX0nbHKbGC8mNPJADZyrXDt42OiYmJiYmJCeAfFIBY9BfeKMAAAAAASUVORK5CYII=",
-      role: "Full-Stack Developer",
+      role: "Frontend Developer",
       company: "Tripleblue",
-      date: "May 2024 - Present",
+      date: "May 2024 - July 2025",
       desc: "Maintained and enhanced the original FlutterFlow mobile and web app, adding features and resolving platform-specific bugs (e.g., native audio recording and iOS file persistence). Rebuilt the full web app in React (Next.js) with Supabase backend, migrating from FlutterFlow to a scalable custom codebase. Rewrote the mobile app in Flutter with full feature parity, improving performance, offline access, and audio handling. Collaborated with the design team to translate Figma designs into clean, responsive UI across devices. Introduced reusable component structures and improved Supabase data modeling.",
       skills: [
         "Flutter",
@@ -362,11 +380,20 @@ export const Bio = {
   export const education = [
   {
     id: 0,
+    img: "https://upload.wikimedia.org/wikipedia/commons/8/81/University_of_Pretoria_Coat_of_Arms.png",
+    school: "University of Pretoria",
+    date: "2026 – Present",
+    grade: "In Progress",
+    desc: "Advanced computer science coursework, specialising toward digital forensics and cyber security.",
+    degree: "BSc Honours, Computer Science",
+  },
+  {
+    id: 3,
     img: "https://akademia.ac.za/wp-content/uploads/elementor/thumbs/Simbool-05-q374re2ym3cmf66qhldcrhx9mkyeh2lw8q3d0bzli0.png",
     school: "Akademia",
-    date: "2023 – 2025 (In Progress)",
-    grade: "In Progress",
-    desc: "Coursework includes software development, algorithms, databases, cloud computing, and systems architecture.",
+    date: "2023 – 2025",
+    grade: "Completed",
+    desc: "Software development, algorithms, databases, cloud computing, and systems architecture.",
     degree: "BSc Computer Science",
   },
   {

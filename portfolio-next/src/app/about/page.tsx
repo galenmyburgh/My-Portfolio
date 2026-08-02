@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { Reveal } from "@/components/reveal";
-import { certifications, education, roles } from "@/content/career";
+import { certifications, education, engagements, roles } from "@/content/career";
+import { categories, techById } from "@/content/tech";
 import { resumeUrl, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Galen Myburgh — mobile and web developer in Pretoria. Five years of Flutter and React, payments integration, and a BSc in progress.",
+    "Galen Myburgh — mobile and web developer in Pretoria. Five years of Flutter and React, payments and NFC integration, AI products, BSc Computer Science, Honours in progress.",
   alternates: { canonical: "/about" },
 };
 
@@ -32,10 +34,24 @@ export default function AboutPage() {
           without losing a single feature.
         </p>
         <p>
+          Through my own company, Codelyn, I spent a year contracting on the kind of work
+          that doesn&apos;t fit in a browser tab — pairing NFC card readers to a wallet
+          that settles offline, shutting industrial fire pumps down from a phone through
+          an ESP module, routing windscreen technicians between jobs in the UK. Software
+          that has to agree with a physical object is a different discipline, and I like it.
+        </p>
+        <p>
+          Right now I&apos;m at Tripleblue working on AI products — their knowledge agent
+          and AI Notes, plus the note-taking mobile app and the German DMS counterpart.
+          The interesting problem there isn&apos;t the model. It&apos;s everything around
+          it: what the product does when the answer is wrong, and how a user can tell.
+        </p>
+        <p>
           I gravitate toward systems where correctness has consequences — payments,
-          background processing, anything where &quot;mostly working&quot; is a synonym
-          for broken. I&apos;m finishing a BSc in Computer Science at Akademia alongside
-          full-time work, and I&apos;m based in {site.location}.
+          hardware, background processing, anything where &quot;mostly working&quot; is a
+          synonym for broken. I finished a BSc in Computer Science at Akademia in 2025 and
+          I&apos;m now reading for a BSc Honours at the University of Pretoria, moving
+          toward digital forensics and cyber security. Based in {site.location}.
         </p>
       </div>
 
@@ -88,6 +104,52 @@ export default function AboutPage() {
             </Reveal>
           ))}
         </ol>
+      </section>
+
+      <section aria-labelledby="freelance" className="mt-16">
+        <h2 id="freelance" className="text-2xl font-semibold tracking-tight text-ink">
+          Freelance clients
+        </h2>
+        <p className="mt-2 text-muted">
+          Through Codelyn, 2025–2026. Short write-ups — the full case studies in{" "}
+          <Link
+            href="/work"
+            className="text-accent underline decoration-hairline underline-offset-4 hover:decoration-current"
+          >
+            Work
+          </Link>{" "}
+          go deeper.
+        </p>
+
+        <ul className="mt-6 space-y-5">
+          {engagements.map((item, i) => (
+            <Reveal as="li" key={item.id} delay={i * 60}>
+              <div className="rounded-xl border border-hairline bg-surface p-5">
+                <h3 className="font-semibold text-ink">{item.client}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.summary}</p>
+                <ul className="mt-3 flex flex-wrap gap-1.5">
+                  {item.stack.map((id) => {
+                    const t = techById.get(id);
+                    if (!t) return null;
+                    return (
+                      <li
+                        key={id}
+                        className="flex items-center gap-1.5 rounded-md border border-hairline px-2 py-0.5 text-2xs text-muted"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="size-1.5 rounded-full"
+                          style={{ backgroundColor: categories[t.category].color }}
+                        />
+                        {t.name}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
       </section>
 
       <section aria-labelledby="study" className="mt-16">

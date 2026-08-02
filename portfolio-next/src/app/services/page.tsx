@@ -30,6 +30,11 @@ const services = [
     good: "Money moves through your product and you want it to be boring.",
   },
   {
+    title: "Apps that talk to hardware",
+    body: "NFC readers, ESP modules, industrial equipment. I've paired card hardware to a Flutter wallet that settles offline, and built an app that shuts down fire pumps and pages the on-call technician over WhatsApp. The difficulty is never the happy path — it's what the app does when the device is out of range, the read is partial, or the equipment disagrees with your state.",
+    good: "Your product has a physical component and the software has to be right about it.",
+  },
+  {
     title: "Rescue and stabilise",
     body: "An app that crashes, a codebase nobody wants to touch. Instrument it first so the priority order comes from data, then refactor incrementally while features keep shipping.",
     good: "The next feature keeps costing more than the last one.",

@@ -4,14 +4,14 @@ Next.js 16 (App Router), TypeScript, Tailwind v4, with an optional WebGL layer.
 
 ```bash
 npm install
-cp .env.example .env.local     # set NEXT_PUBLIC_SITE_URL at minimum
+cp .env.example .env.local     # only needed for the contact form
 npm run dev
 ```
 
 | Script               | What it does                                                          |
 | -------------------- | --------------------------------------------------------------------- |
 | `npm run dev`        | Dev server                                                            |
-| `npm run build`      | Production build (throws without `NEXT_PUBLIC_SITE_URL`)              |
+| `npm run build`      | Production build                                                      |
 | `npm run check`      | Typecheck + lint + build                                              |
 | `npm run audit:a11y` | axe on every route, both themes; exits non-zero on any violation      |
 
@@ -26,7 +26,7 @@ AUDIT_URL=http://localhost:3000 npm run audit:a11y
 
 | Variable               | Required     | Notes                                                                                                         |
 | ---------------------- | ------------ | ------------------------------------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL` | yes          | Absolute origin, no trailing slash. Canonicals, OG tags and the sitemap derive from it. The build fails loudly without it rather than shipping localhost canonicals. |
+| `NEXT_PUBLIC_SITE_URL` | no           | Overrides the production origin (`https://galenmyburgh.com`) baked into `src/lib/site.ts`. Set it on preview deployments so they don't advertise production canonicals. |
 | `RESEND_API_KEY`       | for the form | Server-side only. Without it the contact form tells visitors to email directly instead of failing silently.    |
 | `CONTACT_TO_EMAIL`     | no           | Defaults to the address in `src/lib/site.ts`.                                                                 |
 

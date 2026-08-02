@@ -36,13 +36,28 @@ development.
 
 ## 2. What I need from you
 
-| Thing                | Why                                                                 |
-| -------------------- | ------------------------------------------------------------------- |
-| **The domain**       | You said you own one but didn't say which. It's currently a build-time variable (`NEXT_PUBLIC_SITE_URL`); canonicals, OG tags and the sitemap all need it. |
-| **Case study review**| See above.                                                          |
+Domain is set: **galenmyburgh.com**, wired into both apps, verified in the
+generated canonicals, Open Graph tags, `robots.txt` and `sitemap.xml`.
+
+**One thing to confirm.** You wrote *"not currently busy with BSc Honours in
+Computer Science at the University of Pretoria"*, then described its modules. I
+read that as "**now** currently busy with" and both sites now say you are
+enrolled and reading toward digital forensics and cyber security. If that's
+wrong, it is a claim about your credentials on a public site — tell me and I'll
+change it immediately.
+
+Two dates I had to assume: the Honours start (**2026**), and that Codelyn
+finishing in January 2026 means the company is dormant rather than closed. The
+`/services` page still offers freelance work on that basis.
+
+
+| Thing                 | Why                                                                |
+| --------------------- | ------------------------------------------------------------------ |
+| **Case study review** | See above. This is the one that matters.                            |
 | **Real outcome numbers** | Users, latency, time saved, conversion, error rates.            |
 | **Hardware for `/uses`** | The software list is accurate; the hardware section is a stub.   |
 | **Rates for `/services`** | Left out deliberately. Clients who can't find pricing usually assume the worst and don't ask. |
+| **Codelyn outcome numbers** | The four client engagements are described but carry no results. Even one — cards issued, technicians using it, pumps under control — would lift them. |
 
 ---
 
@@ -96,7 +111,7 @@ The current site had problems worth fixing regardless of the rebuild.
   passes with warnings-as-errors.
 - Replaced the failing default CRA test with two real ones. `npm test` passes.
 - EmailJS keys moved to env vars — **but see the security note below.**
-- Real SEO metadata, Open Graph tags and JSON-LD.
+- Real SEO metadata, Open Graph tags and JSON-LD, pointing at `galenmyburgh.com`.
 
 ### Security note on the EmailJS keys
 
@@ -107,7 +122,7 @@ them changes nothing, because the new key is equally public.
 
 The control that actually protects your quota is the **domain allowlist** in the
 EmailJS dashboard (Account → Security → Allowed domains). Set it to your live
-domain. I've moved the keys to environment variables so they're out of the repo,
+domain (`galenmyburgh.com`). I've moved the keys to environment variables so they're out of the repo,
 but that is hygiene, not a fix.
 
 The rebuild removes the problem entirely — the contact form is a Server Action
@@ -144,6 +159,31 @@ move the goalposts:
 Both are framework weight. If they matter more than Next.js does, that's a
 framework conversation, not a tuning one.
 
+**The Tripleblue full-stack role was overstated in my first pass** — I wrote
+that you took ownership of the whole stack and the Supabase backend. Corrected:
+it's AI product work (Knowledge Agent, AI Notes, the DMS Germany counterpart,
+the AI note-taking mobile app). I don't know what DMS expands to, so it's
+described using your wording.
+
+**Positioning, settled.** The three specialisms are now
+**"Flutter & React · Payments & NFC · AI products"**, your call after I laid out
+the options. Hardware & IoT is deliberately a supporting act rather than a
+headline — it's still a constellation category, a `/services` offer and four
+client write-ups on `/about`, it just doesn't lead. One line in `src/lib/site.ts`
+if you change your mind.
+
+The constellation gained a sixth category (*Hardware & IoT*) and nodes for NFC,
+ESP modules, IoT integration, offline-first, Maps & navigation, WhatsApp API and
+AI agents. Cluster angles are derived rather than hand-tuned now, so a seventh
+category rebalances the layout instead of landing on an existing one.
+
+The four Codelyn engagements are on `/about` as short, honest write-ups rather
+than full case studies — a case study has to say what was hard and what changed,
+and I'm not inventing those answers again. Promote any of them to `work.ts` once
+you've written one up. Batsamayi and Firebrain are the two I'd pick: an offline
+NFC wallet and remote industrial control are the most distinctive things on your
+CV.
+
 **Design decisions worth knowing about:**
 
 - **The constellation is the navigation.** Clicking a technology filters the
@@ -178,8 +218,10 @@ npm run dev                                          # click around
 
 When you're satisfied:
 
-1. Set `NEXT_PUBLIC_SITE_URL` (and `RESEND_API_KEY` if you want the form live)
-   in your host's environment.
+1. Set `RESEND_API_KEY` in your host's environment if you want the contact form
+   live. `galenmyburgh.com` is already baked in as the default origin, so
+   `NEXT_PUBLIC_SITE_URL` only needs setting on preview deployments (so they
+   don't advertise production canonicals).
 2. Move `portfolio-next/*` to the repo root, deleting the CRA `src/`, `build/`,
    `public/index.html` and the CRA entries in `package.json`.
 3. Point the host at the Next.js build. On Netlify that means the

@@ -2,32 +2,36 @@
  * Single source of truth for anything that needs the site's own address —
  * canonical tags, Open Graph URLs, the sitemap, JSON-LD.
  *
- * Set NEXT_PUBLIC_SITE_URL in the host's environment. The localhost fallback
- * only ever applies in development; a production build without it would emit
- * localhost canonicals, so `npm run build` fails loudly instead (see below).
+ * `NEXT_PUBLIC_SITE_URL` overrides this, which is what preview deployments
+ * should set so they don't advertise production canonicals. The default is the
+ * real origin rather than localhost: a fresh clone with no `.env.local` then
+ * still builds something correct, and the failure mode of a missed env var is
+ * "canonicals point at production" instead of "canonicals point at localhost".
  */
 
-const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "");
+const PRODUCTION_ORIGIN = "https://galenmyburgh.com";
 
-if (!fromEnv && process.env.NODE_ENV === "production") {
-  throw new Error(
-    "NEXT_PUBLIC_SITE_URL is not set. Canonical URLs, Open Graph tags and the " +
-      "sitemap all need the real origin — set it in the host's environment " +
-      "(e.g. https://example.com) before building."
-  );
-}
-
-export const siteUrl = fromEnv ?? "http://localhost:3000";
+export const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") || PRODUCTION_ORIGIN;
 
 export const site = {
   url: siteUrl,
   name: "Galen Myburgh",
   /** One line, not ten rotating titles. */
   tagline: "I build production mobile and web systems that handle money, scale and mess.",
-  specialisms: ["Flutter & React", "Payments integration", "AI-assisted automation"],
+  /**
+   * Three, not ten — a visitor who reads ten titles reads none of them.
+   *
+   * Hardware & IoT is deliberately *not* here despite being distinctive. It's a
+   * supporting act rather than a headline: still a constellation category, a
+   * `/services` offer, and four client write-ups on `/about`. The three that
+   * made the cut are the ones with the longest runway — the stack, the current
+   * work, and the thread that runs from Mewzo through Payflex to Batsamayi.
+   */
+  specialisms: ["Flutter & React", "Payments & NFC", "AI products"],
   description:
     "Galen Myburgh builds production mobile and web systems — Flutter and React apps, " +
-    "payments integrations and AI-assisted automation. Based in South Africa.",
+    "payments and NFC integrations, and AI products. Based in South Africa.",
   locale: "en_ZA",
   email: "galen.myburgh46@gmail.com",
   location: "Pretoria, South Africa",

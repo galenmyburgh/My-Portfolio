@@ -89,7 +89,7 @@ export const caseStudies: CaseStudy[] = [
     timeline: "April – July 2024",
     role: "Flutter Developer (full-time contract)",
     team: "Cross-functional — Flutter, .NET backend, QA, product, design",
-    stack: ["flutter", "dart", "cleanarch", "firebase", "payments", "android", "ios", "csharp"],
+    stack: ["flutter", "dart", "cleanarch", "firebase", "payments", "maps", "android", "ios", "csharp"],
     category: "mobile",
     featured: true,
     image: "/work/payflex.jpg",

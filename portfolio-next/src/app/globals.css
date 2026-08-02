@@ -45,6 +45,7 @@
   --color-cat-mobile: var(--cat-mobile);
   --color-cat-web: var(--cat-web);
   --color-cat-data: var(--cat-data);
+  --color-cat-hardware: var(--cat-hardware);
   --color-cat-cloud: var(--cat-cloud);
   --color-cat-ai: var(--cat-ai);
 }
@@ -73,6 +74,7 @@
   --cat-mobile: #0369a1;
   --cat-web: #a4520a;
   --cat-data: #047857;
+  --cat-hardware: #334155;
   --cat-cloud: #6d28d9;
   --cat-ai: #be123c;
 }
@@ -98,6 +100,7 @@
   --cat-mobile: #38bdf8;
   --cat-web: #fbbf24;
   --cat-data: #34d399;
+  --cat-hardware: #e2e8f0;
   --cat-cloud: #c084fc;
   --cat-ai: #fb7185;
 }
@@ -126,6 +129,7 @@
     --cat-mobile: #38bdf8;
     --cat-web: #fbbf24;
     --cat-data: #34d399;
+    --cat-hardware: #e2e8f0;
     --cat-cloud: #c084fc;
     --cat-ai: #fb7185;
   }
