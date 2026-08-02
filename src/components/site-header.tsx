@@ -48,7 +48,19 @@ export function SiteHeader() {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    // Browser scroll restoration and programmatic jumps can land the page
+    // mid-document without emitting a scroll event the listener sees. Re-check
+    // once the next frame and once after load, so the bar can't be left in its
+    // transparent top-of-page state over scrolled content.
+    const raf = requestAnimationFrame(onScroll);
+    window.addEventListener("load", onScroll);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("load", onScroll);
+    };
   }, []);
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);

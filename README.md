@@ -73,6 +73,9 @@ Adding one entry to [`src/content/tech.ts`](src/content/tech.ts) makes a technol
 <tr><td><strong>Self-laying-out diagrams</strong></td>
 <td>Case studies describe their architecture as nodes and edges only. A longest-path layering assigns columns at render time and the diagram draws itself in on scroll, so adding a service is one line of data rather than a coordinate rewrite.</td></tr>
 
+<tr><td><strong>Named tools, not "AI-first"</strong></td>
+<td>Claude Code, Cursor, ChatGPT/Codex and Gemini are each a node in the graph with a note on <em>what it's actually for</em> — agentic multi-file work, inline editing, drafting, long-context reading. Anyone can claim to be AI-first; saying which tool earns its place in which situation is the part that isn't generic.</td></tr>
+
 <tr><td><strong>Placeholders can't ship</strong></td>
 <td>Unverified metrics are marked <code>needsInput</code> in the content layer. They render visibly unfinished in development and are <strong>stripped from production builds</strong>, so a <code>NUMBER NEEDED</code> can never reach a visitor.</td></tr>
 </table>

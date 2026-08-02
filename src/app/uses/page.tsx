@@ -15,9 +15,33 @@ const groups = [
     heading: "Editor & terminal",
     items: [
       { name: "VS Code", note: "Primary editor. Dart, TypeScript and Tailwind extensions." },
-      { name: "Cursor", note: "When I want the AI in the loop rather than in a browser tab." },
+      { name: "Cursor", note: "Primary AI editor — see below." },
       { name: "Android Studio", note: "For anything that needs the emulator, profiler or Gradle." },
       { name: "Xcode", note: "iOS builds, signing, and the native debugging Flutter can't reach." },
+    ],
+  },
+  {
+    // NOTE: these are drafted. Rewrite each in your own words — "what I actually
+    // reach for it for" is the part that separates this from every other list of
+    // AI tool logos.
+    heading: "AI in the loop",
+    items: [
+      {
+        name: "Claude Code",
+        note: "Agentic work in the terminal. Multi-file refactors, migrations and reviews where the change spans more of the repo than fits in a chat window.",
+      },
+      {
+        name: "Cursor",
+        note: "The default editor. Inline completion and edits where I'm already working, rather than copying between a browser tab and the file.",
+      },
+      {
+        name: "ChatGPT / Codex",
+        note: "Drafting an implementation, then arguing with it. Most useful before I've committed to an approach, when the cost of being wrong is still zero.",
+      },
+      {
+        name: "Gemini",
+        note: "Long-context reading — a large codebase or a pile of documentation in one pass, when the question is 'where does this actually happen'.",
+      },
     ],
   },
   {
@@ -45,9 +69,11 @@ export default function UsesPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
       <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Uses</h1>
-      <p className="mt-3 max-w-2xl text-muted">
+      <p className="mt-3 max-w-2xl text-pretty text-muted">
         What I actually reach for. Not an aspirational list — if it&apos;s here, I&apos;ve
-        shipped something with it.
+        shipped something with it. That includes the AI tooling: it&apos;s in the daily
+        loop, and I think being specific about what each one is good for is more useful
+        than claiming to be &quot;AI-first&quot;.
       </p>
 
       <div className="mt-12 space-y-12">

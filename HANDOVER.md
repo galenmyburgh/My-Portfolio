@@ -34,7 +34,22 @@ development.
 
 ---
 
-## 2. What I need from you
+## 2. AI tooling — added
+
+Gemini, ChatGPT/Codex, Claude Code and Cursor are now four named nodes in the
+constellation (AI & automation category) and a dedicated **"AI in the loop"**
+section on `/uses`. They replace the single vague "AI-assisted dev" node.
+
+The notes on each — what you reach for it *for* — are **drafted, like the case
+studies**. Every developer lists these four; being specific about what each is
+good for is the only part that isn't generic, so it's worth ten minutes putting
+them in your own words. They're in `src/content/tech.ts` and `src/app/uses/page.tsx`.
+
+Selecting one in the constellation returns no case studies (none is *built on* a
+coding tool), so that empty state now explains why and links to `/uses` and
+`/lab` rather than dead-ending.
+
+## 3. What I need from you
 
 Domain is set: **galenmyburgh.com**, wired into both apps, verified in the
 generated canonicals, Open Graph tags, `robots.txt` and `sitemap.xml`.
@@ -61,7 +76,7 @@ finishing in January 2026 means the company is dormant rather than closed. The
 
 ---
 
-## 3. Company logos — researched and corrected
+## 4. Company logos — researched and corrected
 
 You were right: I'd given the Tripleblue full-stack role and Codelyn the
 **Payflex** icon, and Tripleblue Frontend was showing the **Softechware** logo.
@@ -91,7 +106,7 @@ Two useful things fell out of the research:
   say the word and I'll make it explicit.
 - **Bowlsmaster is Fairtree Bowls Master**, a bowls club management app.
 
-## 4. Live site (CRA) — fixed in place
+## 5. Live site (CRA) — fixed in place
 
 The current site had problems worth fixing regardless of the rebuild.
 
@@ -160,7 +175,7 @@ and the API key never reaches the browser.
 
 ---
 
-## 5. The rebuild — `portfolio-next/`
+## 6. The rebuild
 
 Next.js 16.2.12, React 19, Tailwind v4, TypeScript strict. See
 `portfolio-next/README.md` for how it's put together.
@@ -258,7 +273,7 @@ site's internals rather than separate experiments.
 
 ---
 
-## 6. Swapping the rebuild in
+## 7. Deploying
 
 I have not done this — it changes what deploys, and you should look at it first.
 

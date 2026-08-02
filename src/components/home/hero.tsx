@@ -173,16 +173,36 @@ export function Hero({ studies }: { studies: WorkCardData[] }) {
             ))}
           </div>
         ) : (
-          <p className="mt-8 text-muted">
-            No case study covers that one yet — it shows up in smaller work.{" "}
-            <button
-              type="button"
-              onClick={() => setSelected(null)}
-              className="text-accent underline underline-offset-4"
-            >
-              Show everything
-            </button>
-          </p>
+          <div className="mt-8 rounded-xl border border-hairline bg-surface p-6">
+            <p className="text-muted">
+              No case study is built <em>on</em> {selectedTech?.name} — it&apos;s part of
+              how the work gets made rather than what it&apos;s made of.
+            </p>
+            <p className="mt-3 text-sm text-muted">
+              {selectedTech?.note}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              <Link
+                href="/uses"
+                className="text-accent underline decoration-hairline underline-offset-4 hover:decoration-current"
+              >
+                What I use it for →
+              </Link>
+              <Link
+                href="/lab"
+                className="text-accent underline decoration-hairline underline-offset-4 hover:decoration-current"
+              >
+                How this site was built →
+              </Link>
+              <button
+                type="button"
+                onClick={() => setSelected(null)}
+                className="text-muted underline decoration-hairline underline-offset-4 hover:text-ink"
+              >
+                Show everything
+              </button>
+            </div>
+          </div>
         )}
       </section>
     </>
