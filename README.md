@@ -55,6 +55,9 @@ Adding one entry to [`src/content/tech.ts`](portfolio-next/src/content/tech.ts) 
 <tr><td width="30%"><strong>3D that costs nothing</strong></td>
 <td>The constellation renders three ways from one deterministic layout: <strong>SVG with real HTML buttons</strong> (the default, a few KB, carries the whole interaction), <strong>WebGL</strong> layered <em>behind those same buttons</em> on capable hardware, and <strong>decorative dots</strong> on phones where 40 overlapping tap targets would be bad UI. The 3D version is never more capable — or less accessible — than the SVG one.</td></tr>
 
+<tr><td><strong>The hero field</strong></td>
+<td>A full-bleed WebGL aurora behind the headline — domain-warped fBm, four octaves, rendered at a capped DPR of 1 because it's a soft gradient and nobody can tell. It is coloured by sampling <em>the same five category colours</em> the constellation uses, and <strong>select a technology and the field warms toward that category's colour</strong>. Without that it would just be a lava lamp.</td></tr>
+
 <tr><td><strong>A frame-rate watchdog</strong></td>
 <td>The WebGL layer samples its own frame times and switches itself off if the device can't hold ~40fps. The SVG constellation is already underneath it, so degrading costs the visitor nothing.</td></tr>
 

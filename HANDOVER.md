@@ -214,6 +214,27 @@ you've written one up. Batsamayi and Firebrain are the two I'd pick: an offline
 NFC wallet and remote industrial control are the most distinctive things on your
 CV.
 
+**The hero WebGL field.** Full-bleed aurora behind the headline: domain-warped
+noise, coloured from the same five category colours as the constellation, and it
+biases toward whichever category you select — so it carries information rather
+than being wallpaper. Same capability gate as the constellation, so phones,
+reduced-motion, save-data and low-memory devices never load it, and it shares the
+existing three.js chunk so it adds no new bundle.
+
+Two bugs worth recording because they are easy to hit again:
+
+- `smoothstep(1.6, 0.05, x)` is **undefined behaviour** — GLSL requires
+  `edge0 < edge1`. To fade outward, write `1.0 - smoothstep(0.15, 1.5, x)`.
+  Mine returned ~0 on this driver, which renders a completely invisible layer.
+- Blending five palette colours with wide Gaussians averages them to **grey**.
+  The bands have to be tight or the whole field desaturates.
+
+I also found and fixed a target-size regression while testing this: shrinking the
+constellation hit areas to 28px earlier stopped them overlapping on phones but
+left them overlapping on desktop. The layout now runs a relaxation pass that
+enforces a minimum separation between nodes, so they cannot collide at any size.
+Desktop accessibility is back to 100.
+
 **Design decisions worth knowing about:**
 
 - **The constellation is the navigation.** Clicking a technology filters the

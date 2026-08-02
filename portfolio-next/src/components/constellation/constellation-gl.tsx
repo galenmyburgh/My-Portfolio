@@ -268,7 +268,19 @@ export function ConstellationGL({ className }: { className?: string }) {
     let frame = 0;
     let running = true;
     let visible = true;
-    const clock = new THREE.Clock();
+    // THREE.Clock is deprecated in three 0.185; performance.now() is what it
+    // wrapped anyway. `last = 0` marks "resume" — the next frame reports a
+    // zero delta instead of the whole time the loop was paused.
+    let last = 0;
+    const nextDelta = () => {
+      const now = performance.now();
+      const delta = last === 0 ? 0 : (now - last) / 1000;
+      last = now;
+      return delta;
+    };
+    const resumeClock = () => {
+      last = 0;
+    };
 
     // Watchdog: if this device can't hold a decent frame rate, stop. The SVG
     // layer underneath is already a complete constellation, so stopping costs
@@ -282,7 +294,7 @@ export function ConstellationGL({ className }: { className?: string }) {
 
       if (!visible || width === 0) return;
 
-      const delta = clock.getDelta();
+      const delta = nextDelta();
 
       if (samples < 240) {
         samples++;
@@ -306,7 +318,7 @@ export function ConstellationGL({ className }: { className?: string }) {
     // running in background tabs.
     const onVisibility = () => {
       visible = document.visibilityState === "visible";
-      if (visible) clock.getDelta(); // Discard the gap.
+      if (visible) resumeClock();
     };
     document.addEventListener("visibilitychange", onVisibility);
 
@@ -314,7 +326,7 @@ export function ConstellationGL({ className }: { className?: string }) {
     const inView = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting && document.visibilityState === "visible";
-        if (visible) clock.getDelta();
+        if (visible) resumeClock();
       },
       { threshold: 0 }
     );

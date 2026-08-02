@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { Constellation } from "@/components/constellation";
+import { HeroBackdrop } from "@/components/hero-backdrop";
 import { TechList } from "@/components/constellation/tech-list";
 import { WorkCard } from "@/components/work-card";
 import { Reveal } from "@/components/reveal";
@@ -31,7 +32,9 @@ export function Hero({ studies }: { studies: WorkCardData[] }) {
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-5 pt-14 pb-8 sm:px-8 sm:pt-20">
+      <section className="relative isolate px-5 pt-14 pb-8 sm:px-8 sm:pt-20">
+        <HeroBackdrop selected={selected} />
+        <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
           <div>
             <p className="font-mono text-sm text-accent">Galen Myburgh</p>
@@ -122,6 +125,7 @@ export function Hero({ studies }: { studies: WorkCardData[] }) {
 
             <TechList selected={selected} onSelect={setSelected} />
           </div>
+        </div>
         </div>
       </section>
 

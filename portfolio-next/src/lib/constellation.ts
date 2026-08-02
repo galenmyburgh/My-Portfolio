@@ -87,6 +87,50 @@ export function buildConstellation(): { nodes: Node[]; edges: Edge[] } {
     });
   }
 
+  // Relaxation pass.
+  //
+  // Clustered layout looks right but packs nodes close enough that their 28px
+  // hit areas overlap, and an overlapped target is a smaller *effective* target
+  // — which is a real WCAG 2.5.8 failure, not a technicality. A few iterations
+  // of pushing apart any pair closer than `MIN_SEPARATION` fixes it while
+  // leaving the cluster structure intact.
+  //
+  // 0.135 units ≈ 32px in the rendered map at its usual desktop size.
+  const MIN_SEPARATION = 0.135;
+
+  for (let pass = 0; pass < 60; pass++) {
+    let moved = false;
+
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i];
+        const b = nodes[j];
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const dist = Math.hypot(dx, dy) || 0.0001;
+        if (dist >= MIN_SEPARATION) continue;
+
+        const push = (MIN_SEPARATION - dist) / 2;
+        const nx = (dx / dist) * push;
+        const ny = (dy / dist) * push;
+
+        a.x = clamp(a.x - nx);
+        a.y = clamp(a.y - ny);
+        b.x = clamp(b.x + nx);
+        b.y = clamp(b.y + ny);
+        moved = true;
+      }
+    }
+
+    if (!moved) break;
+  }
+
+  // Re-round after relaxation, or the hydration mismatch comes back.
+  for (const n of nodes) {
+    n.x = round(n.x);
+    n.y = round(n.y);
+  }
+
   const index = new Map(nodes.map((n) => [n.id, n]));
 
   const edges: Edge[] = [];
