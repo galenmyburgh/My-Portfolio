@@ -26,8 +26,8 @@ width: 100%;
 border-radius: 16px;
 margin: 50px 12px;
 height: min-content;
-background-color: #ffffff;
-color: #000000;
+background-color: ${({ theme }) => theme.card};
+color: ${({ theme }) => theme.text_primary};
 padding: 20px;
 display: flex;
 flex-direction: column;
@@ -35,10 +35,10 @@ position: relative;
 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 `;
 
-const Title = styled.div`
+const Title = styled.h2`
   font-size: 28px;
   font-weight: 600;
-  color: #000000;
+  color: ${({ theme }) => theme.text_primary};
   margin: 8px 6px 0px 6px;
   @media only screen and (max-width: 600px) {
       font-size: 24px;
@@ -50,7 +50,7 @@ const Date = styled.div`
     font-size: 16px;
     margin: 2px 6px;
     font-weight: 400;
-    color: #666666;
+    color: ${({ theme }) => theme.textMuted};
     @media only screen and (max-width: 768px){
         font-size: 12px;
     }
@@ -61,7 +61,7 @@ const Date = styled.div`
 const Desc = styled.div`
     font-size: 16px;
     font-weight: 400;
-    color: #000000;
+    color: ${({ theme }) => theme.text_primary};
     margin: 8px 6px;
     @media only screen and (max-width: 600px) {
         font-size: 14px;
@@ -94,7 +94,7 @@ const Image = styled.img`
 const Label = styled.div`
     font-size: 20px;
     font-weight: 600;
-    color: #000000;
+    color: ${({ theme }) => theme.text_primary};
     margin: 8px 6px;
     @media only screen and (max-width: 600px) {
         font-size: 16px;
@@ -118,7 +118,7 @@ const Tag = styled.div`
     margin: 4px;
     padding: 4px 8px;
     border-radius: 8px;
-    background-color: #007bff;
+    background-color: #1d4ed8;
     @media only screen and (max-width: 600px) {
         font-size: 12px;
     }
@@ -158,12 +158,28 @@ const MemberName = styled.div`
     font-size: 16px;
     font-weight: 500;
     width: 200px;
-    color: #000000;
+    color: ${({ theme }) => theme.text_primary};
     @media only screen and (max-width: 600px) {
         font-size: 14px;
     }
 `;
 
+
+const CloseButton = styled.button`
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.card};
+    color: ${({ theme }) => theme.text_primary};
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+`;
 
 const ButtonGroup = styled.div`
     display: flex;
@@ -180,7 +196,7 @@ const Button = styled.a`
     color: #ffffff;
     padding: 12px 16px;
     border-radius: 8px;
-    background-color: #007bff;
+    background-color: #1d4ed8;
     ${({ dull }) => dull && `
         background-color: #6c757d;
         color: #ffffff;
@@ -192,7 +208,7 @@ const Button = styled.a`
     text-decoration: none;
     transition: all 0.5s ease;
     &:hover {
-        background-color: #0056b3;
+        background-color: #1e40af;
     }
     @media only screen and (max-width: 600px) {
         font-size: 12px;
@@ -274,28 +290,19 @@ const Index = ({ openModal, setOpenModal }) => {
         // Add caption if you want:
         // caption: 'Slide Image Caption' 
     }));
-    const [showSlideshow, setShowSlideshow] = useState(true);
+    const [showSlideshow] = useState(true);
 
     return (
         <Modal open={true} onClose={() => setOpenModal({ state: false, project: null })}>
             <Container>
                 <Wrapper>
-                    <CloseRounded
-                        style={{
-                            fontSize: "30px", 
-                            position: "absolute",
-                            top: "10px",
-                            right: "20px",
-                            cursor: "pointer",
-                            backgroundColor: "#ffffff",
-                            color: "#000000",
-                            padding: "8px",       
-                            borderRadius: '50%',
-                            zIndex: 10,
-                            boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-                        }}
+                    <CloseButton
+                        type="button"
+                        aria-label="Close project details"
                         onClick={() => setOpenModal({ state: false, project: null })}
-                    />
+                    >
+                        <CloseRounded style={{ fontSize: "24px" }} aria-hidden="true" />
+                    </CloseButton>
                     {/* <Image src={project?.image} /> */}
                     {showSlideshow ? (
                         <Slide easing="ease"> 
@@ -308,7 +315,7 @@ const Index = ({ openModal, setOpenModal }) => {
                     ) : (
                         <> 
                             {project?.image && project?.image[0] ? ( // Access the first image (index 0)
-                                <Image src={project.image[0]} />
+                                <Image src={project.image[0]} alt={`${project.title} screenshot`} />
                             ) : (
                                 <div>No image found.</div> 
                             )}
@@ -318,10 +325,24 @@ const Index = ({ openModal, setOpenModal }) => {
                     <Date>{project.date}</Date>
                     <Tags>
                         {project?.tags.map((tag) => (
-                            <Tag>{tag}</Tag>
+                            <Tag key={tag}>{tag}</Tag>
                         ))}
                     </Tags>
                     <Desc>{project?.description}</Desc>
+                    {(project?.github || project?.webapp) && (
+                        <ButtonGroup>
+                            {project?.github && (
+                                <Button dull href={project.github} target="_blank" rel="noopener noreferrer">
+                                    View Code
+                                </Button>
+                            )}
+                            {project?.webapp && (
+                                <Button href={project.webapp} target="_blank" rel="noopener noreferrer">
+                                    View Live
+                                </Button>
+                            )}
+                        </ButtonGroup>
+                    )}
                     {project.member && (
                         <>
                             <Label>Members</Label>
@@ -330,10 +351,10 @@ const Index = ({ openModal, setOpenModal }) => {
                                     <Member>
                                         <MemberImage src={member.img} />
                                         <MemberName>{member.name}</MemberName>
-                                        <a href={member.github} target="new" style={{textDecoration: 'none', color: 'inherit'}}>
+                                        <a href={member.github} target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>
                                             <GitHub />
                                         </a>
-                                        <a href={member.linkedin} target="new" style={{textDecoration: 'none', color: 'inherit'}}>
+                                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>
                                             <LinkedIn />
                                         </a>
                                     </Member>

@@ -31,7 +31,7 @@ gap: 12px;
 }
 `
 
-const Title = styled.div`
+const Title = styled.h2`
 font-size: 42px;
 text-align: center;
 font-weight: 600;
@@ -115,26 +115,49 @@ const ContactButton = styled.input`
   margin-top: 2px;
   border-radius: 12px;
   border: none;
-  color: ${({ theme }) => theme.text_primary};
+  /* The gradient is dark in both themes, so the label is always white —
+     theme.text_primary made this dark-on-dark and unreadable in light mode. */
+  color: #ffffff;
   font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
 `
+
+// EmailJS browser credentials are public by design — they ship in every client
+// bundle. Reading them from env keeps them out of git, but the control that
+// actually matters is the domain allowlist in the EmailJS dashboard. The rebuild
+// replaces this with a server-side send.
+const EMAILJS_SERVICE = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
 
   //hooks
-  const [open, setOpen] = React.useState(false);
+  const [status, setStatus] = React.useState(null); // 'success' | 'error' | null
+  const [sending, setSending] = React.useState(false);
   const form = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_tox7kqs', 'template_nv7k7mj', form.current, 'SybVGsYS52j2TfLbi')
-      .then((result) => {
-        setOpen(true);
-        form.current.reset();
-      }, (error) => {
-        console.log(error.text);
-      });
+    setSending(true);
+    emailjs
+      .sendForm(EMAILJS_SERVICE, EMAILJS_TEMPLATE, form.current, EMAILJS_PUBLIC_KEY)
+      .then(
+        () => {
+          setStatus("success");
+          form.current.reset();
+        },
+        () => {
+          setStatus("error");
+        }
+      )
+      .finally(() => setSending(false));
   }
 
 
@@ -146,21 +169,24 @@ const Contact = () => {
         <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
         <ContactForm ref={form} onSubmit={handleSubmit} method='POST' netlify netlify-honeypot='bot-field'>
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" rows="4" name="message" />
-          <ContactButton type="submit" value="Send" />
+          <ContactInput type="email" required placeholder="Your Email" aria-label="Your email address" name="from_email" />
+          <ContactInput required placeholder="Your Name" aria-label="Your name" name="from_name" />
+          <ContactInput required placeholder="Subject" aria-label="Subject" name="subject" />
+          <ContactInputMessage required placeholder="Message" aria-label="Message" rows="4" name="message" />
+          <ContactButton type="submit" disabled={sending} value={sending ? "Sending…" : "Send"} />
+          <p aria-live="polite" role="status" style={{ minHeight: "1.2em", fontSize: "0.9rem" }}>
+            {status === "success" && "Thanks — your message is on its way."}
+            {status === "error" && "Something went wrong. Email me directly at galen.myburgh46@gmail.com."}
+          </p>
           <p style={{display: 'none'}}>
         <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
     </p>
         </ContactForm>
         <Snackbar
-          open={open}
+          open={status === "success"}
           autoHideDuration={6000}
-          onClose={()=>setOpen(false)}
+          onClose={() => setStatus(null)}
           message="Email sent successfully!"
-          severity="success"
         />
       </Wrapper>
     </Container>

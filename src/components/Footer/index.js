@@ -25,7 +25,8 @@ const FooterWrapper = styled.footer`
   color: ${({ theme }) => theme.text_primary};
 `;
 
-const Logo = styled.h1`
+// A <p>, not an <h1> — the hero already owns the page's single top-level heading.
+const Logo = styled.p`
   font-weight: 600;
   font-size: 20px;
   color: ${({ theme }) => theme.primary};
@@ -84,27 +85,43 @@ const Copyright = styled.p`
   text-align: center;
 `;
 
+const socials = [
+  { href: Bio.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
+  { href: Bio.twitter, label: "Twitter", Icon: TwitterIcon },
+  { href: Bio.insta, label: "Instagram", Icon: InstagramIcon },
+  { href: Bio.facebook, label: "Facebook", Icon: FacebookIcon },
+];
+
 function Footer() {
   return (
     <FooterContainer>
       <FooterWrapper>
         <Logo>Galen Myburgh</Logo>
-        <Nav>
-          <NavLink href="#about">About</NavLink>
+        <Nav aria-label="Footer">
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#experience">Experience</NavLink>
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#education">Education</NavLink>
           <NavLink href="#certifications">Certifications</NavLink>
+          <NavLink href="#contact">Contact</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display"><FacebookIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.twitter} target="display"><TwitterIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.linkedin} target="display"><LinkedInIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display"><InstagramIcon /></SocialMediaIcon>
+          {socials
+            .filter(({ href }) => href)
+            .map(({ href, label, Icon }) => (
+              <SocialMediaIcon
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Galen Myburgh on ${label}`}
+              >
+                <Icon aria-hidden="true" />
+              </SocialMediaIcon>
+            ))}
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2025 Galen Myburgh. All rights reserved.
+          &copy; {new Date().getFullYear()} Galen Myburgh. All rights reserved.
         </Copyright>
 
       </FooterWrapper>

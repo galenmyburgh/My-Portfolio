@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ArrowCircleUp } from '@mui/icons-material';
 
@@ -27,28 +27,28 @@ const ScrollToTopButton = styled.button`
 `;
 
 const ScrollToTop = () => {
-    const [showButton, setShowButton] = React.useState(false);
+    const [showButton, setShowButton] = useState(false);
 
-    // Show button after scrolling a certain distance
-    window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
-            setShowButton(true);
-        } else {
-            setShowButton(false);
-        }
-    });
+    useEffect(() => {
+        const onScroll = () => setShowButton(window.scrollY > 300);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
-    // Smooth scroll to top function
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     };
 
     return (
-        <ScrollToTopButton 
-            onClick={scrollToTop} 
+        <ScrollToTopButton
+            type="button"
+            onClick={scrollToTop}
+            aria-label="Scroll back to top"
             style={{ display: showButton ? 'block' : 'none' }}
         >
-            <ArrowCircleUp />
+            <ArrowCircleUp aria-hidden="true" />
         </ScrollToTopButton>
     );
 };

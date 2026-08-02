@@ -5,14 +5,11 @@ import {
   HeroContainer,
   HeroBg,
   HeroContent,
-  HeroH1,
   HeroP,
   HeroBtnWrapper,
   ArrowForward,
   ArrowRight,
   HeroBtn,
-  HeroSocialLinks,
-  SocialLink,
   HeroStats,
   StatItem,
   StatNumber,
@@ -38,42 +35,51 @@ const HeroSection = () => {
     triggerOnce: true,
   });
 
+  // Three specialisms, not ten titles. A visitor who reads ten reads none of them.
   const texts = useMemo(() => [
-    "AI-First Developer",
-    "Automation Engineer",
-    "Mobile App Architect",
-    "Payments Integration Specialist",
-    "React & Flutter Expert",
-    "Supabase Solutions Builder",
-    "Cloud Platform Engineer",
-    "Technical Innovator",
-    "Product-Focused Coder",
-    "Python Visioneer"
+    "Flutter & React",
+    "Payments integration",
+    "AI-assisted automation",
   ], []);
 
+  // Every state update has to be scheduled inside the timeout. Previously the
+  // timeout body was empty and setDisplayText ran in the effect body, so the
+  // text typed itself at render speed rather than the intended 100ms per char.
   useEffect(() => {
     const currentText = texts[currentTextIndex];
-    const shouldDelete = isDeleting;
 
-    if (shouldDelete) {
-      if (displayText === "") {
-        setIsDeleting(false);
-        setCurrentTextIndex((prev) => (prev + 1) % texts.length);
-        return;
-      }
-      setDisplayText(currentText.substring(0, displayText.length - 1));
-    } else {
-      if (displayText === currentText) {
-        setTimeout(() => setIsDeleting(true), 2000);
-        return;
-      }
-      setDisplayText(currentText.substring(0, displayText.length + 1));
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+      return undefined;
     }
 
-    const speed = shouldDelete ? 50 : 100;
-    const timer = setTimeout(() => {}, speed);
+    const finishedTyping = !isDeleting && displayText === currentText;
+    const delay = finishedTyping ? 2000 : isDeleting ? 50 : 100;
+
+    const timer = setTimeout(() => {
+      if (finishedTyping) {
+        setIsDeleting(true);
+      } else {
+        setDisplayText(
+          currentText.substring(0, displayText.length + (isDeleting ? -1 : 1))
+        );
+      }
+    }, delay);
+
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, currentTextIndex, texts]);
+
+  // Positions were recomputed with Math.random() on every render, which made the
+  // particles jump on each state change. Generate them once.
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 20 }, () => ({
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+      })),
+    []
+  );
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -124,16 +130,12 @@ const HeroSection = () => {
       <HeroBg>
         <GradientOverlay />
         <FloatingParticles>
-          {[...Array(20)].map((_, i) => (
+          {particles.map((particle, i) => (
             <Particle
               key={i}
               variants={particleVariants}
               animate="animate"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
+              style={particle}
             />
           ))}
         </FloatingParticles>
@@ -187,12 +189,7 @@ const HeroSection = () => {
           <motion.div variants={itemVariants}>
             <HeroBtnWrapper>
               <HeroBtn
-                to="contact"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
+                href="#contact"
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
               >
@@ -207,6 +204,8 @@ const HeroSection = () => {
             <HeroImage
               src="/gmNew.jpg"
               alt="Galen Myburgh"
+              width={667}
+              height={1000}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />

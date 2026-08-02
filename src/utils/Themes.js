@@ -18,6 +18,14 @@ export const lightTheme = {
   textPrimary: "#1e293b",
   textSecondary: "#475569",
   textMuted: "#64748b",
+  // Aliases — components across the app consume snake_case names.
+  // Kept as plain hex so the `token + "80"` alpha-suffix pattern stays valid CSS.
+  text_primary: "#1e293b",
+  text_secondary: "#475569",
+  text_black: "#0f172a",
+  soft2: "#64748b",
+  card: "#f8fafc",
+  white: "#ffffff",
   background: "#ffffff",
   backgroundSecondary: "#f8fafc",
   backgroundTertiary: "#f1f5f9",
@@ -132,6 +140,14 @@ export const darkTheme = {
   textPrimary: "#f8fafc",
   textSecondary: "#cbd5e1",
   textMuted: "#94a3b8",
+  // Aliases — see lightTheme. Surface tokens flip so "white" means "card surface",
+  // not literal white, otherwise dark mode renders white cards with white text.
+  text_primary: "#f8fafc",
+  text_secondary: "#cbd5e1",
+  text_black: "#f8fafc",
+  soft2: "#94a3b8",
+  card: "#1e293b",
+  white: "#1e293b",
   background: "#0f172a",
   backgroundSecondary: "#1e293b",
   backgroundTertiary: "#334155",
@@ -302,9 +318,46 @@ export const GlobalStyles = createGlobalStyle`
     height: auto;
   }
 
-  .focus-visible {
-    outline: 2px solid ${({ theme }) => theme.focusRing};
+  /* Real focus ring. This was written as a .focus-visible class, which never
+     matched anything — keyboard navigation was completely invisible. */
+  :focus-visible {
+    outline: 2px solid ${({ theme }) => theme.primary};
     outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 8px;
+    top: -60px;
+    z-index: 1000;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: ${({ theme }) => theme.primary};
+    color: #ffffff;
+    transition: top 0.15s ease-in-out;
+  }
+
+  .skip-link:focus {
+    top: 8px;
+    color: #ffffff;
+  }
+
+  /* Nothing here is essential to understanding the content, so a visitor who
+     asks for reduced motion gets none of it. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   .sr-only {

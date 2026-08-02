@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   }
 `
 
-export const Title = styled.div`
+export const Title = styled.h2`
   font-size: 42px;
   text-align: center;
   font-weight: 600;
@@ -76,7 +76,7 @@ const Skill = styled.div`
 
 `
 
-const SkillTitle = styled.h2`
+const SkillTitle = styled.h3`
   font-size: 28px;
   font-weight: 600;
   color: ${({ theme }) => theme.text_secondary};
@@ -95,8 +95,8 @@ const SkillList = styled.div`
 const SkillItem = styled.div`
   font-size: 16px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 80};
-  border: 1px solid ${({ theme }) => theme.text_primary + 80};
+  color: ${({ theme }) => theme.textMuted};
+  border: 1px solid ${({ theme }) => theme.textMuted};
   border-radius: 12px;
   padding: 12px 16px;
   display: flex;
@@ -128,12 +128,12 @@ const Skills = () => {
         </Desc>
         <SkillsContainer>
           {skills.map((skill) => (
-            <Skill>
+            <Skill key={skill.title}>
               <SkillTitle>{skill.title}</SkillTitle>
               <SkillList>
                 {skill.skills.map((item) => (
-                  <SkillItem>
-                    <SkillImage src={item.image}/>
+                  <SkillItem key={item.name}>
+                    <SkillImage src={item.image} alt="" loading="lazy" />
                     {item.name}
                   </SkillItem>
                 ))}

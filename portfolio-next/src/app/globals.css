@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+
+   Ported from the old styled-components `Themes.js`. The spacing, radius and
+   type scales carried over as-is; the colour tokens were rebuilt around one
+   set of semantic names, because the old theme had accumulated four different
+   ways to say "body text" and half of them resolved to undefined.
+
+   Components only ever reference the semantic name. A single `data-theme`
+   attribute on <html> restyles the whole site with no React re-render.
+--------------------------------------------------------------------------- */
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
+
+  --text-2xs: 0.6875rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-hairline: var(--hairline);
+  --color-edge: var(--edge);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --color-wash: var(--wash);
+
+  /* Technology categories. Used by the constellation nodes, the work filters
+     and the tags, so a technology is the same colour everywhere it appears. */
+  --color-cat-mobile: var(--cat-mobile);
+  --color-cat-web: var(--cat-web);
+  --color-cat-data: var(--cat-data);
+  --color-cat-cloud: var(--cat-cloud);
+  --color-cat-ai: var(--cat-ai);
+}
+
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --canvas: #ffffff;
+  --surface: #f6f8fb;
+  --raised: #ffffff;
+  --hairline: #e2e8f0;
+  --edge: #cbd5e1;
+
+  --ink: #0b1220;
+  --muted: #47556a;
+  /* #64748b measured 4.47:1 against --surface — just under AA for the 11px
+     labels that use it. This is 5.1:1. */
+  --faint: #5b6a7f;
+
+  --accent: #1d4ed8;
+  --accent-hover: #1e40af;
+  --on-accent: #ffffff;
+  --wash: #eef4ff;
+
+  --cat-mobile: #0369a1;
+  --cat-web: #a4520a;
+  --cat-data: #047857;
+  --cat-cloud: #6d28d9;
+  --cat-ai: #be123c;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: #070c17;
+  --surface: #0e1728;
+  --raised: #16223a;
+  --hairline: #1e2b45;
+  --edge: #33415c;
+
+  --ink: #f1f5f9;
+  --muted: #c3cede;
+  --faint: #94a3b8;
+
+  --accent: #6aa6ff;
+  --accent-hover: #9cc3ff;
+  --on-accent: #061020;
+  --wash: #10233f;
+
+  --cat-mobile: #38bdf8;
+  --cat-web: #fbbf24;
+  --cat-data: #34d399;
+  --cat-cloud: #c084fc;
+  --cat-ai: #fb7185;
+}
+
+/* Visitors who never touch the toggle follow their OS. The theme script sets
+   data-theme before paint, so this only applies on the very first frame. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    --canvas: #070c17;
+    --surface: #0e1728;
+    --raised: #16223a;
+    --hairline: #1e2b45;
+    --edge: #33415c;
+
+    --ink: #f1f5f9;
+    --muted: #c3cede;
+    --faint: #94a3b8;
+
+    --accent: #6aa6ff;
+    --accent-hover: #9cc3ff;
+    --on-accent: #061020;
+    --wash: #10233f;
+
+    --cat-mobile: #38bdf8;
+    --cat-web: #fbbf24;
+    --cat-data: #34d399;
+    --cat-cloud: #c084fc;
+    --cat-ai: #fb7185;
+  }
+}
+
+/* --------------------------------------------------------------------------- */
+
+* {
+  min-width: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Anchor targets clear the sticky header instead of hiding under it. */
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---------------------------------------------------------------------------
+   Motion
+
+   One switch. `data-motion="reduce"` is set on <html> before paint, so the
+   JavaScript side (the WebGL loop, the scroll observers) reads exactly the
+   same signal the CSS does — no chance of the two disagreeing.
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html[data-motion="reduce"] {
+  scroll-behavior: auto;
+}
+
+html[data-motion="reduce"] *,
+html[data-motion="reduce"] *::before,
+html[data-motion="reduce"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll reveal
+
+   Guarded behind `html.js`, which the theme script adds. If JavaScript fails
+   the content is simply visible — the old AOS setup left the whole page at
+   opacity 0 in that case.
+--------------------------------------------------------------------------- */
+
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+
+html.js [data-reveal][data-shown="true"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.55s var(--ease-out-expo),
+    transform 0.55s var(--ease-out-expo);
+}
+
+html[data-motion="reduce"] [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}

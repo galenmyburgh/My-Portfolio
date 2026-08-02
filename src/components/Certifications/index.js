@@ -37,7 +37,7 @@ const Wrapper = styled.div`
     }
 `;
 
-const Title = styled.div`
+const Title = styled.h2`
 font-size: 42px;
 text-align: center;
 font-weight: 600;
@@ -85,7 +85,7 @@ const index = () => {
                 <TimelineSection>
                     <Timeline>
                         {certifications.map((certification,index) => (
-                            <TimelineItem >
+                            <TimelineItem key={certification.id}>
                                 <TimelineContent sx={{ py: '12px', px: 2 }}>
                                     <EducationCard education={certification}/>
                                 </TimelineContent>

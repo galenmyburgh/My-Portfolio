@@ -4,7 +4,7 @@ export const Bio = {
       "Flutter Developer",
       "Android Developer",
       "FlutterFlow Developer",
-      "Full Stack Mobi",
+      "Full Stack Mobile Developer",
     ],
     description:
       "I am an enthusiastic and dynamic professional, constantly driven by the desire to confront new challenges and expand my skill set. My commitment to lifelong learning fuels my quest for excellence, ensuring that I consistently produce work of the highest caliber. With an optimistic outlook and a mindset geared towards continuous improvement, I am poised to make significant contributions and achieve outstanding results.",
@@ -12,7 +12,9 @@ export const Bio = {
     resume:
       "https://drive.google.com/file/d/1ffZrcMcn8UatXGIaautbbqpV7ADNaETA/view?usp=sharing",
     linkedin: "https://www.linkedin.com/in/galen-myburgh-537340193/",
-    twitter: "https://twitter.com/RishavChanda",
+    // No Twitter/X account yet — the footer skips any social link left empty.
+    // (This previously pointed at the original template author's handle.)
+    twitter: "",
     insta: "https://www.instagram.com/galenmyburgh/",
     facebook: "https://www.facebook.com/galen.myburgh",
   };
@@ -302,7 +304,7 @@ export const Bio = {
       role: "Frontend Developer",
       company: "Softechware",
       date: "August 2021 - Current",
-      desc: "Specialized in creating robust mobile applications using Flutter, with a strong command over Dart. Developed cross-platform solutions with Firebase and integrated seamless Uls with Flutterflow, honing skills in Swift and Java/Kotlin for full-stack capability",
+      desc: "Specialized in creating robust mobile applications using Flutter, with a strong command over Dart. Developed cross-platform solutions with Firebase and integrated seamless UIs with FlutterFlow, honing skills in Swift and Java/Kotlin for full-stack capability",
       skills: [
         "HTML 5",
         "CSS",
@@ -416,7 +418,7 @@ export const certifications = [
       date: "2024",
       description:
         "Led major improvements in the customer-facing Payflex app (400k+ downloads) during a full-time contract. Assisted in migrating the legacy codebase to Clean Architecture for modularity and long-term maintainability. Developed key user-facing features like the Store Directory module with dynamic Google Maps store markers. Improved app stability by over 40%, according to Firebase Crashlytics, through performance optimizations and bug resolution. Collaborated with cross-functional teams including .NET backend developers, QA, and design to ensure reliable feature delivery across Android and iOS.",
-      image: ["/pf_Screenshot.png"],
+      image: ["/pf_screenshot.jpg"],
       tags: ["Flutter", "Clean Architecture", "Firebase", "Google Maps", "Android", "iOS"],
       category: "flutter",
       github: "",
@@ -428,7 +430,7 @@ export const certifications = [
       date: "2024",
       description:
         "Maintained and extended Tripleblue's initial production platform built in FlutterFlow. Implemented new features, integrated APIs, and fixed critical issues such as native background audio recording and iOS-specific file persistence. Worked across both web and mobile versions, preparing the product for a full rewrite while keeping the original platform stable and functional.",
-      image: ["/tb_screenshots.png"],
+      image: ["/tb_screenshots.jpg"],
       tags: ["FlutterFlow", "Firebase", "Background Audio", "iOS", "Web"],
       category: "flutterflow",
       github: "",
@@ -440,7 +442,7 @@ export const certifications = [
       date: "2024",
       description:
         "Rebuilt the Softechware corporate web platform using React, delivering a modern, responsive UX aligned with Figma designs. Integrated key modules like SaaS showcases, custom API integrations, and interactive service pathways.",
-      image: ["stw_screenshot.png"],
+      image: ["/stw_screenshot.jpg"],
       tags: ["React", "SaaS", "API Integration", "Responsive Web"],
       category: "react",
       github: "",
@@ -452,7 +454,7 @@ export const certifications = [
       date: "2024",
       description:
         "Rewrote Tripleblue's web application from FlutterFlow into a custom React + Next.js architecture using Supabase. Rebuilt all features from the low-code environment, implemented optimized data flows, and translated complex UI components from Figma into maintainable React code. Resulted in improved performance, better scalability, and complete separation of frontend logic and presentation.",
-      image: ["/tb_screenshots.png"],
+      image: ["/tb_screenshots.jpg"],
       tags: ["React", "Next.js", "Supabase", "TypeScript", "Figma"],
       category: "react",
       github: "",
@@ -464,7 +466,7 @@ export const certifications = [
       date: "2024",
       description:
         "Rebuilt the entire mobile platform in Flutter to replace the previous FlutterFlow version. Delivered full feature parity, including agenda syncing, background audio playback, offline storage, and a cleaner modular codebase. Ensured compatibility across Android and iOS, and collaborated with the design team to ensure pixel-perfect adherence to Figma.",
-      image: ["/tb_screenshots.png"],
+      image: ["/tb_screenshots.jpg"],
       tags: ["Flutter", "Background Audio", "Offline Storage", "Android", "iOS", "Figma"],
       category: "flutter",
       github: "",
@@ -476,7 +478,7 @@ export const certifications = [
       date: "2024",
       description:
         "Finalized and launched the Athlenote MVP on both iOS and Android in just 3 days. Fixed habit tracking bugs, completed backend logic, and configured app store deployments. Integrated RevenueCat for in-app subscriptions (with a 7-day free trial), and improved voice recording functionality by simplifying UX and adding length controls. Handled all production prep using FlutterFlow and Firebase, including testing, cleanup, and polish for app submission.",
-      image: ["athlenote_screenshot.jpg"],
+      image: ["/athlenote_screenshot.jpg"],
       tags: ["FlutterFlow", "Firebase", "RevenueCat", "Voice Recording", "iOS", "Android"],
       category: "flutterflow",
       github: "",
@@ -492,7 +494,7 @@ export const certifications = [
        ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Fcdor_web-min.png?alt=media&token=7e8bab06-065c-4f67-aadd-c84aebf90d1e"],
       tags: ["WordPress","cPanel","Contact Form 7","Elementor"],
       category: "wordpress",
-      github: "https://github.com/rishavchanda/Trackify",
+      github: "",
       webapp: "https://cdor.co.za",
     },
     {
@@ -505,7 +507,7 @@ export const certifications = [
         ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Fzinvest_web-min.png?alt=media&token=668839ae-bb82-4110-b8ed-b3d50696f9a3"],
       tags: ["WordPress","cPanel","Contact Form 7","Elementor"],
       category: "wordpress",
-      github: "https://github.com/rishavchanda/Podstream",
+      github: "",
       webapp: "https://zwarrieinvest.co.za",
     },
     {
@@ -518,7 +520,7 @@ export const certifications = [
         ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Fdupdup_web-min.png?alt=media&token=0a62c0bb-6493-4b5e-8de3-7b9ba644b219"],
       tags: ["WordPress","cPanel","Contact Form 7","Elementor"],
       category: "wordpress",
-      github: "https://github.com/rishavchanda/Project-Management-App",
+      github: "",
       webapp: "https://www.dupdup.co.za",
     },
     {
@@ -531,21 +533,21 @@ export const certifications = [
         ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Feavfire_web-min.png?alt=media&token=b07f523b-6768-44fb-b46c-07131af62a44"],
       tags: ["WordPress","cPanel"],
       category: "wordpress",
-      github: "https://github.com/rishavchanda/Whatsapp-Clone-React-Js",
-      webapp: "https://whatsapp-clone-rishav.web.app",
+      github: "",
+      webapp: "",
     },
     {
       id: 10,
       title: "Bester Barrows",
       date: "February 2021",
       description:
-        "Interactive WordPress site, linked with QR-Codes attached to their products, each product linked with it's own page and QR-Code",
+        "Interactive WordPress site, linked with QR-Codes attached to their products, each product linked to its own page and QR-Code",
       image:
         ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/websites%2Fbb_web-min.png?alt=media&token=c1577e70-2ca7-4a22-b997-5e00eb055d13"],
       tags: ["WordPress","cPanel","Contact Form 7","Divi"],
       category: "wordpress",
-      github: "https://github.com/rishavchanda/Todo-Web-App",
-      webapp: "https://rishav-react-todo.netlify.app/",
+      github: "",
+      webapp: "",
     },
     {
       id: 11,
@@ -560,15 +562,15 @@ export const certifications = [
       "https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2Fcdor_ff_4.png?alt=media&token=c6090cdc-8501-4fdf-a5af-415b9c16bd2a",
       "https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2Fcdor_ff_5.png?alt=media&token=89a9e2f6-0fd6-422c-8cc7-5637ad7a98f8"],      tags: ["FlutterFlow","Firebase","Cloud Functions","Dart"],
       category: "flutterflow",
-      github: "https://github.com/rishavchanda/Brain-Tumor-Detection",
-      webapp: "https://brain-tumor.netlify.app/",
+      github: "",
+      webapp: "",
     },
     {
       id: 12,
       title: "Mewzo",
       date: "Jun 2021",
       description:
-        "This Marketplace app layed my foundation for using different API calls for completing payments with Payment Gateways.",
+        "This Marketplace app laid the foundation for using different API calls for completing payments with Payment Gateways.",
       image:
         ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2Fmewzo_1.png?alt=media&token=d2412b70-6d42-437c-8cdf-a229e33e89d5",
         "https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2Fmewzo_pay_1.PNG?alt=media&token=ebeb4044-7d2c-4926-912d-d87dfce9acd5",
@@ -577,15 +579,15 @@ export const certifications = [
         "https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2Fmewzo_2.png?alt=media&token=070bd40b-2bc5-49fc-ac5a-b3e0e1068cad"],
       tags: ["FlutterFlow","Firebase","Paystack API","API Calls"],
       category: "flutterflow",
-      github: "https://github.com/rishavchanda/Breaking-Bad",
-      webapp: "https://breaking-bad-webapp.netlify.app",
+      github: "",
+      webapp: "",
     },
     {
       id: 13,
       title: "CW Guard Management",
       date: "March 2023",
       description:
-        "This app layed my foundation for Push notifications and other CRUD capabilities from Firebase. This was one of my first completed projects.",
+        "This app laid the foundation for Push notifications and other CRUD capabilities from Firebase. This was one of my first completed projects.",
       image:
         ["https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2FcwGuard_1.png?alt=media&token=1538f3ae-e742-4f8f-bc3c-4a8dca448a87",
         "https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2FcwGuard_2.png?alt=media&token=91917142-8cda-40b5-9260-0f26a5cd8219",
@@ -593,8 +595,8 @@ export const certifications = [
         "https://firebasestorage.googleapis.com/v0/b/galenmyburgh-6456c.appspot.com/o/flutterflow%2FcwGuard_4.png?alt=media&token=fb120855-509c-4d61-a815-f86e1f659e57"],
       tags: ["Flutterflow","Firebase","Push Notifications"],
       category: "flutterflow",
-      github: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
-      webapp: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
+      github: "",
+      webapp: "",
     },
     {
       id: 14,
@@ -602,7 +604,7 @@ export const certifications = [
       date: "2024",
       description:
         "Developed a smart camera analytics platform using Python and OpenCV for real-time motion detection, object recognition, and event-based alerts. Built a backend dashboard to visualize analytics, track incidents, and monitor camera health. Integrated the solution for edge devices and SME security systems, enabling rapid insights and live monitoring for end users.",
-      image: ["/cwGuardingPlatform_screenshot.png"],
+      image: ["/cwGuardingPlatform_screenshot.jpg"],
       tags: ["Python", "OpenCV", "Computer Vision", "Analytics", "IoT", "Surveillance"],
       category: "python",
       github: "",
@@ -613,13 +615,13 @@ export const certifications = [
     //   title: "Pro-Track",
     //   date: "July 2023",
     //   description:
-    //     "This app layed my foundation in Supabase with FlutterFlow. This app contains all the basic CRUD features as well as AI generated SQL scripts to create views used within the app. Buildship was used to complete linked automated tasks.",
+    //     "This app laid the foundation in Supabase with FlutterFlow. This app contains all the basic CRUD features as well as AI generated SQL scripts to create views used within the app. Buildship was used to complete linked automated tasks.",
     //   image:
     //     ["https://camo.githubusercontent.com/a8b3e1ebf26d4c95f75bc6671189a3590eb67eb8332d7c7452492990e731efb9/68747470733a2f2f77617265686f7573652d63616d6f2e696e67726573732e636d68312e707366686f737465642e6f72672f356137383335396561323762643261633232336437656662306639303831306437373930383436312f363837343734373037333361326632663633366336663735363432653637363937343638373536323735373336353732363336663665373436353665373432653633366636643266363137333733363537343733326633383339333633363339333232663332333433343333333033333339333832663333333636363330363533333636333032643331333336333632326433313331363533373264333833323335333832643334363433303633333936333635333136353334333133393265363736393636"],
     //   tags: ["Flutterflow","Supabase","SQL Scripts","Buildship"],
     //   category: "flutterflow",
-    //   github: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
-    //   webapp: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
+    //   github: "",
+    //   webapp: "",
     // },
     // {
     //   id: 12,
@@ -631,8 +633,8 @@ export const certifications = [
     //     ["https://camo.githubusercontent.com/a8b3e1ebf26d4c95f75bc6671189a3590eb67eb8332d7c7452492990e731efb9/68747470733a2f2f77617265686f7573652d63616d6f2e696e67726573732e636d68312e707366686f737465642e6f72672f356137383335396561323762643261633232336437656662306639303831306437373930383436312f363837343734373037333361326632663633366336663735363432653637363937343638373536323735373336353732363336663665373436353665373432653633366636643266363137333733363537343733326633383339333633363339333232663332333433343333333033333339333832663333333636363330363533333636333032643331333336333632326433313331363533373264333833323335333832643334363433303633333936333635333136353334333133393265363736393636"],
     //   tags: ["Flutterflow","Supabase","SQL Scripts","Buildship"],
     //   category: "flutterflow",
-    //   github: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
-    //   webapp: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
+    //   github: "",
+    //   webapp: "",
     // },
     // {
     //   id: 12,
@@ -644,15 +646,15 @@ export const certifications = [
     //     ["https://camo.githubusercontent.com/a8b3e1ebf26d4c95f75bc6671189a3590eb67eb8332d7c7452492990e731efb9/68747470733a2f2f77617265686f7573652d63616d6f2e696e67726573732e636d68312e707366686f737465642e6f72672f356137383335396561323762643261633232336437656662306639303831306437373930383436312f363837343734373037333361326632663633366336663735363432653637363937343638373536323735373336353732363336663665373436353665373432653633366636643266363137333733363537343733326633383339333633363339333232663332333433343333333033333339333832663333333636363330363533333636333032643331333336333632326433313331363533373264333833323335333832643334363433303633333936333635333136353334333133393265363736393636"],
     //   tags: ["Flutterflow","Firebase","Push Notifications","Buildship"],
     //   category: "flutterflow",
-    //   github: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
-    //   webapp: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
+    //   github: "",
+    //   webapp: "",
     // },
   ];
   
   export const TimeLineData = [
-    { year: 2017, text: "Started my journey" },
-    { year: 2018, text: "Worked as a freelance developer" },
-    { year: 2019, text: "Founded JavaScript Mastery" },
-    { year: 2020, text: "Shared my projects with the world" },
-    { year: 2021, text: "Started my own platform" },
+    { year: 2020, text: "Matriculated with 4 distinctions, started in tech support" },
+    { year: 2021, text: "First Flutter role at Softechware" },
+    { year: 2023, text: "Started BSc Computer Science at Akademia" },
+    { year: 2024, text: "Payflex — shipped to a 400k+ download consumer app" },
+    { year: 2025, text: "Full-stack at Tripleblue — Flutter, Next.js, Supabase" },
   ];

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import _default from '../../themes/default';
 
 export const Container = styled.div`
     background: linear-gradient(343.07deg, rgba(132, 59, 206, 0.06) 5.71%, rgba(132, 59, 206, 0) 64.83%);
@@ -27,7 +26,7 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const Title = styled.div`
+export const Title = styled.h2`
 font-size: 42px;
 text-align: center;
 font-weight: 600;
