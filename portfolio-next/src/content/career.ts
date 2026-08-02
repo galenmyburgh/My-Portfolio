@@ -42,6 +42,7 @@ export const roles: Role[] = [
     id: "codelyn",
     company: "Codelyn (Pty) Ltd",
     title: "Founder & Freelance Developer",
+    logo: "/logos/codelyn.svg",
     start: "April 2025",
     end: "January 2026",
     summary:
@@ -77,7 +78,7 @@ export const roles: Role[] = [
     title: "Flutter Developer",
     start: "April 2024",
     end: "July 2024",
-    logo: "/logos/payflex.svg",
+    logo: "/logos/payflex.png",
     summary:
       "Contributed to the rewrite and stabilisation of the customer-facing Payflex app, a buy-now-pay-later product with over 400,000 downloads.",
     highlights: [
@@ -95,6 +96,7 @@ export const roles: Role[] = [
     start: "August 2021",
     end: "Present",
     current: true,
+    logo: "/logos/softechware.png",
     summary:
       "Building cross-platform mobile applications in Flutter and Dart, alongside client web work.",
     highlights: [
@@ -123,6 +125,7 @@ export const roles: Role[] = [
     id: "softechware-support",
     company: "Softechware",
     title: "Tech Support (in-person & remote)",
+    logo: "/logos/softechware.png",
     start: "July 2020",
     end: "July 2021",
     summary:
@@ -178,7 +181,7 @@ export const education: Study[] = [
     result: "4 distinctions",
     detail:
       "Mathematics, Physical Science, Accounting, Information Technology, Computer Applications Technology, Afrikaans, English, Life Orientation.",
-    logo: "/logos/zwartkop.jpg",
+    // No public asset for the school — the monogram tile covers it.
   },
 ];
 
@@ -191,7 +194,7 @@ export const certifications: Study[] = [
     end: "2024",
     result: "Passed",
     detail: "Cloud concepts, security and compliance, core services, pricing and support.",
-    logo: "/logos/aws.png",
+    // AWS/Microsoft badge assets are licence-encumbered; monogram instead.
   },
   {
     id: "az-900",
@@ -201,7 +204,7 @@ export const certifications: Study[] = [
     end: "2023",
     result: "Passed",
     detail: "Cloud concepts, Azure architecture and services, management and governance.",
-    logo: "/logos/azure.svg",
+    
   },
 ];
 
@@ -231,12 +234,14 @@ export type Engagement = {
   client: string;
   summary: string;
   stack: string[];
+  logo?: string;
 };
 
 export const engagements: Engagement[] = [
   {
     id: "firebrain",
     client: "Firebrain (Softechware)",
+    logo: "/logos/softechware.png",
     summary:
       "Mobile app, web app and backend for an industrial fire-pump system. Technicians shut pumps down from the app via an ESP module on the hardware, and WhatsApp alerts route to whoever is on call.",
     stack: ["flutter", "esp", "iot", "whatsapp", "firebase", "nodejs"],
@@ -251,13 +256,15 @@ export const engagements: Engagement[] = [
   {
     id: "fixglass",
     client: "Fix Glass (UK)",
+    logo: "/logos/fixglass.png",
     summary:
       "Field-service app for windscreen technicians. I improved the existing Flutter app and added Maps with turn-by-turn navigation, so technicians route between jobs from inside the app rather than switching to another one.",
     stack: ["flutter", "maps", "ios", "android"],
   },
   {
     id: "bowlsmaster",
-    client: "Bowlsmaster",
+    client: "Bowlsmaster (Fairtree)",
+    logo: "/logos/bowlsmaster.png",
     summary: "Feature work and improvements on their Flutter application.",
     stack: ["flutter", "dart"],
   },

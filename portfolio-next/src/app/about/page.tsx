@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CompanyMark } from "@/components/company-mark";
 import { Reveal } from "@/components/reveal";
 import { certifications, education, engagements, roles } from "@/content/career";
 import { categories, techById } from "@/content/tech";
@@ -80,13 +81,18 @@ export default function AboutPage() {
                   role.current ? "bg-accent" : "bg-edge"
                 }`}
               />
-              <p className="text-sm text-faint">
-                {role.start} – {role.end}
-              </p>
-              <h3 className="mt-1 text-lg font-semibold text-ink">
-                {role.title}{" "}
-                <span className="font-normal text-muted">at {role.company}</span>
-              </h3>
+              <div className="flex items-start gap-3">
+                <CompanyMark name={role.company} logo={role.logo} />
+                <div>
+                  <p className="text-sm text-faint">
+                    {role.start} – {role.end}
+                  </p>
+                  <h3 className="text-lg leading-snug font-semibold text-ink">
+                    {role.title}{" "}
+                    <span className="font-normal text-muted">at {role.company}</span>
+                  </h3>
+                </div>
+              </div>
               <p className="mt-2 leading-relaxed text-muted">{role.summary}</p>
               {role.highlights.length > 0 && (
                 <ul className="mt-3 space-y-1.5">
@@ -125,8 +131,11 @@ export default function AboutPage() {
           {engagements.map((item, i) => (
             <Reveal as="li" key={item.id} delay={i * 60}>
               <div className="rounded-xl border border-hairline bg-surface p-5">
-                <h3 className="font-semibold text-ink">{item.client}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.summary}</p>
+                <div className="flex items-center gap-3">
+                  <CompanyMark name={item.client} logo={item.logo} size={38} />
+                  <h3 className="font-semibold text-ink">{item.client}</h3>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{item.summary}</p>
                 <ul className="mt-3 flex flex-wrap gap-1.5">
                   {item.stack.map((id) => {
                     const t = techById.get(id);
@@ -160,11 +169,14 @@ export default function AboutPage() {
         <ul className="mt-6 divide-y divide-hairline">
           {[...education, ...certifications].map((item) => (
             <li key={item.id} className="grid gap-2 py-5 sm:grid-cols-[1fr_2fr]">
-              <div>
-                <p className="text-sm text-faint">
-                  {item.start === item.end ? item.start : `${item.start} – ${item.end}`}
-                </p>
-                <p className="mt-0.5 font-medium text-ink">{item.institution}</p>
+              <div className="flex items-start gap-3">
+                <CompanyMark name={item.institution} logo={item.logo} size={38} />
+                <div>
+                  <p className="text-sm text-faint">
+                    {item.start === item.end ? item.start : `${item.start} – ${item.end}`}
+                  </p>
+                  <p className="mt-0.5 font-medium text-ink">{item.institution}</p>
+                </div>
               </div>
               <div>
                 <p className="font-medium text-ink">

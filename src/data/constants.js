@@ -227,7 +227,7 @@ export const Bio = {
   export const experiences = [
     {
       id: 5,
-      img: "/pfIcon.svg",
+      img: "/logos/tripleblue.svg",
       role: "Full-Stack Developer",
       company: "Tripleblue",
       date: "July 2025 - Present",
@@ -236,7 +236,7 @@ export const Bio = {
     },
     {
       id: 6,
-      img: "/pfIcon.svg",
+      img: "/logos/codelyn.svg",
       role: "Founder & Freelance Developer",
       company: "Codelyn (Pty) Ltd",
       date: "April 2025 - January 2026",
@@ -265,7 +265,7 @@ export const Bio = {
     },
     {
       id: 1,
-      img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABcCAMAAADUMSJqAAAAkFBMVEX///8AFlAAAD8AAEQAAEGmqbcAFE/P0dbq7O8AAEfAw8wAADsAAEkACk/y8/SSkqOOlKcAEU7c29wSHlAADU1ydY+MjJsxOGEAADa3ucYAADPV2N2Ym6l+gZi4vMU7QWVKTmwAAC3g4eZjZ4FESWt1e48MGEwaJFWCh5klLl1OVXVaX3wAACcAAU4qMFppboVgB2CFAAADZUlEQVRoge2X23qiMBRGyYFDSBQyxYqChwJaD+30/d9udqItCKEfNL2YC9aVH8KChJ39B8eZmJiYmJiY+N/JfDuCXnNREkItqUKze5UKD9mS8IPRza3NGvrRdc9ffseNUNqdmZyoP5jdjBMPJjapOvJdgpDHnkMr3KN6a6xdM/NXCUfL3koaiKvGj/+05U8gF88918QUP5Ks9PHAzbOHE0MKcj5KnnOvhVwr6RZusz41z/THy8/wPkgDAaeCs6DsUjJ8iGoW8BcS+sizP0wuPcTcBieBxMJxIlyqKhOsRuhifFc/eT5MDgXGW4NX8g2O9O/2nN0gP5SHN/kWP4XZTohkZqIpR7MkIePkTgVFRFgx76GW76uq2uVtbY8cC6bkzmm5LOfmawbTffLF2Xa9ZbkbGOWFuoHxkmClGDCYwwuska1J7rjXk/ESJ3yB9vVWLyI/MnPA4qMiVD27bMljLujVLG+tUJczodBroIYJ6jrOFbvqySXCTUUioYEa47Ijp6rkb32+uQgQhfbxjGM45TpD8vVQzzK0Z+kZJ7Yrl4DWwxPKT7x3ti9CjyvlNvWQFFwswpvRx3ztDpoWRxd88OTpblQvgYIReKEXfcqJUgZTIah31aUQhIXRPbzlBuXf5dcBf7PELEEeIenF7d+djOjnj9OaReeUJR6aUVzlPf4fhMU8Xtyac5HvCJ0hLyFPt8G5rnUSnal4+ayVwr2kBHl6da0w5+uHa3w8Vu7Ddml2aZwbMUgbuA8W+1LgQ/y18OJbEm2iOIrjYUmUrWFj0NxH3VtuxFUSsW4SiTFJVHKKm7V3l2/U9dZJ5Pjbh8L5TCJ+DItKCGMQzWhDfvwmiaAF5k37ZxLt1Q5OWCYRS9M3w5OrJPr78ftJdJdbkLnufKR8cBKd1phTYxL1yztJFJuBJCorQYJx8nY/T5kRQeokMu+4hsip/IqihyTC0JNinUTQCuWywVkOlpMEkFInkUy+eGeXIkQ6iS4zVEeUAja95qodnET6m1T3K583o1tBjuaKGJVE9+1JcVo8kvdUW/hNyzV+oI5hS0zy+9fcNrAig1cNOdtJ743+DiXYDlUWybIzoODXvqCxYUsT499xk53pZWz0oCyRtDIX0nbHKbGC8mNPJADZyrXDt42OiYmJiYmJCeAfFIBY9BfeKMAAAAAASUVORK5CYII=",
+      img: "/logos/tripleblue.svg",
       role: "Frontend Developer",
       company: "Tripleblue",
       date: "May 2024 - July 2025",
@@ -285,7 +285,7 @@ export const Bio = {
     },
     {
       id: 2,
-      img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABcCAMAAADUMSJqAAAAkFBMVEX///8AFlAAAD8AAEQAAEGmqbcAFE/P0dbq7O8AAEfAw8wAADsAAEkACk/y8/SSkqOOlKcAEU7c29wSHlAADU1ydY+MjJsxOGEAADa3ucYAADPV2N2Ym6l+gZi4vMU7QWVKTmwAAC3g4eZjZ4FESWt1e48MGEwaJFWCh5klLl1OVXVaX3wAACcAAU4qMFppboVgB2CFAAADZUlEQVRoge2X23qiMBRGyYFDSBQyxYqChwJaD+30/d9udqItCKEfNL2YC9aVH8KChJ39B8eZmJiYmJiY+N/JfDuCXnNREkItqUKze5UKD9mS8IPRza3NGvrRdc9ffseNUNqdmZyoP5jdjBMPJjapOvJdgpDHnkMr3KN6a6xdM/NXCUfL3koaiKvGj/+05U8gF88918QUP5Ks9PHAzbOHE0MKcj5KnnOvhVwr6RZusz41z/THy8/wPkgDAaeCs6DsUjJ8iGoW8BcS+sizP0wuPcTcBieBxMJxIlyqKhOsRuhifFc/eT5MDgXGW4NX8g2O9O/2nN0gP5SHN/kWP4XZTohkZqIpR7MkIePkTgVFRFgx76GW76uq2uVtbY8cC6bkzmm5LOfmawbTffLF2Xa9ZbkbGOWFuoHxkmClGDCYwwuska1J7rjXk/ESJ3yB9vVWLyI/MnPA4qMiVD27bMljLujVLG+tUJczodBroIYJ6jrOFbvqySXCTUUioYEa47Ijp6rkb32+uQgQhfbxjGM45TpD8vVQzzK0Z+kZJ7Yrl4DWwxPKT7x3ti9CjyvlNvWQFFwswpvRx3ztDpoWRxd88OTpblQvgYIReKEXfcqJUgZTIah31aUQhIXRPbzlBuXf5dcBf7PELEEeIenF7d+djOjnj9OaReeUJR6aUVzlPf4fhMU8Xtyac5HvCJ0hLyFPt8G5rnUSnal4+ayVwr2kBHl6da0w5+uHa3w8Vu7Ddml2aZwbMUgbuA8W+1LgQ/y18OJbEm2iOIrjYUmUrWFj0NxH3VtuxFUSsW4SiTFJVHKKm7V3l2/U9dZJ5Pjbh8L5TCJ+DItKCGMQzWhDfvwmiaAF5k37ZxLt1Q5OWCYRS9M3w5OrJPr78ftJdJdbkLnufKR8cBKd1phTYxL1yztJFJuBJCorQYJx8nY/T5kRQeokMu+4hsip/IqihyTC0JNinUTQCuWywVkOlpMEkFInkUy+eGeXIkQ6iS4zVEeUAja95qodnET6m1T3K583o1tBjuaKGJVE9+1JcVo8kvdUW/hNyzV+oI5hS0zy+9fcNrAig1cNOdtJ743+DiXYDlUWybIzoODXvqCxYUsT499xk53pZWz0oCyRtDIX0nbHKbGC8mNPJADZyrXDt42OiYmJiYmJCeAfFIBY9BfeKMAAAAAASUVORK5CYII=",
+      img: "/logos/softechware.png",
       role: "In-person / Remote Tech Support",
       company: "Softechware",
       date: "July 2020 - July 2021",
@@ -301,7 +301,7 @@ export const Bio = {
     },
     {
       id: 3,
-      img: "https://upload.wikimedia.org/wikipedia/commons/8/81/University_of_Pretoria_Coat_of_Arms.png",
+      img: "/logos/up.png",
       role: "AIM Lab Technician",
       company: "University of Pretoria",
       date: "January 2021 - January 2023",
@@ -318,7 +318,7 @@ export const Bio = {
     },
     {
       id: 4,
-      img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABcCAMAAADUMSJqAAAAkFBMVEX///8AFlAAAD8AAEQAAEGmqbcAFE/P0dbq7O8AAEfAw8wAADsAAEkACk/y8/SSkqOOlKcAEU7c29wSHlAADU1ydY+MjJsxOGEAADa3ucYAADPV2N2Ym6l+gZi4vMU7QWVKTmwAAC3g4eZjZ4FESWt1e48MGEwaJFWCh5klLl1OVXVaX3wAACcAAU4qMFppboVgB2CFAAADZUlEQVRoge2X23qiMBRGyYFDSBQyxYqChwJaD+30/d9udqItCKEfNL2YC9aVH8KChJ39B8eZmJiYmJiY+N/JfDuCXnNREkItqUKze5UKD9mS8IPRza3NGvrRdc9ffseNUNqdmZyoP5jdjBMPJjapOvJdgpDHnkMr3KN6a6xdM/NXCUfL3koaiKvGj/+05U8gF88918QUP5Ks9PHAzbOHE0MKcj5KnnOvhVwr6RZusz41z/THy8/wPkgDAaeCs6DsUjJ8iGoW8BcS+sizP0wuPcTcBieBxMJxIlyqKhOsRuhifFc/eT5MDgXGW4NX8g2O9O/2nN0gP5SHN/kWP4XZTohkZqIpR7MkIePkTgVFRFgx76GW76uq2uVtbY8cC6bkzmm5LOfmawbTffLF2Xa9ZbkbGOWFuoHxkmClGDCYwwuska1J7rjXk/ESJ3yB9vVWLyI/MnPA4qMiVD27bMljLujVLG+tUJczodBroIYJ6jrOFbvqySXCTUUioYEa47Ijp6rkb32+uQgQhfbxjGM45TpD8vVQzzK0Z+kZJ7Yrl4DWwxPKT7x3ti9CjyvlNvWQFFwswpvRx3ztDpoWRxd88OTpblQvgYIReKEXfcqJUgZTIah31aUQhIXRPbzlBuXf5dcBf7PELEEeIenF7d+djOjnj9OaReeUJR6aUVzlPf4fhMU8Xtyac5HvCJ0hLyFPt8G5rnUSnal4+ayVwr2kBHl6da0w5+uHa3w8Vu7Ddml2aZwbMUgbuA8W+1LgQ/y18OJbEm2iOIrjYUmUrWFj0NxH3VtuxFUSsW4SiTFJVHKKm7V3l2/U9dZJ5Pjbh8L5TCJ+DItKCGMQzWhDfvwmiaAF5k37ZxLt1Q5OWCYRS9M3w5OrJPr78ftJdJdbkLnufKR8cBKd1phTYxL1yztJFJuBJCorQYJx8nY/T5kRQeokMu+4hsip/IqihyTC0JNinUTQCuWywVkOlpMEkFInkUy+eGeXIkQ6iS4zVEeUAja95qodnET6m1T3K583o1tBjuaKGJVE9+1JcVo8kvdUW/hNyzV+oI5hS0zy+9fcNrAig1cNOdtJ743+DiXYDlUWybIzoODXvqCxYUsT499xk53pZWz0oCyRtDIX0nbHKbGC8mNPJADZyrXDt42OiYmJiYmJCeAfFIBY9BfeKMAAAAAASUVORK5CYII=",
+      img: "/logos/softechware.png",
       role: "Frontend Developer",
       company: "Softechware",
       date: "August 2021 - Current",
@@ -380,7 +380,7 @@ export const Bio = {
   export const education = [
   {
     id: 0,
-    img: "https://upload.wikimedia.org/wikipedia/commons/8/81/University_of_Pretoria_Coat_of_Arms.png",
+    img: "/logos/up.png",
     school: "University of Pretoria",
     date: "2026 – Present",
     grade: "In Progress",
@@ -389,7 +389,7 @@ export const Bio = {
   },
   {
     id: 3,
-    img: "https://akademia.ac.za/wp-content/uploads/elementor/thumbs/Simbool-05-q374re2ym3cmf66qhldcrhx9mkyeh2lw8q3d0bzli0.png",
+    img: "/logos/akademia.png",
     school: "Akademia",
     date: "2023 – 2025",
     grade: "Completed",

@@ -61,7 +61,37 @@ finishing in January 2026 means the company is dormant rather than closed. The
 
 ---
 
-## 3. Live site (CRA) — fixed in place
+## 3. Company logos — researched and corrected
+
+You were right: I'd given the Tripleblue full-stack role and Codelyn the
+**Payflex** icon, and Tripleblue Frontend was showing the **Softechware** logo.
+Fixed on both sites, using real assets pulled from source and served locally
+rather than hotlinked:
+
+| Company | Source |
+| --- | --- |
+| Tripleblue | Official mark from `triple.blue` |
+| Payflex | Official brand mark from `payflex.co.za` |
+| Softechware | Site icon from `softechware.co.za` (256px frame) |
+| Bowlsmaster | Fairtree Bowls Master app icon — thanks for the Fairtree pointer |
+| Fix Glass | App icon from `fix.glass` |
+| University of Pretoria, Akademia | Official marks, downsized |
+| Codelyn | A 'C' monogram, as you asked |
+| Batsamayi, Firebrain, schools, certs | No public asset — a monogram tile |
+
+All normalised to 128px, stripped, 88 KB total. `CompanyMark` renders a real
+logo where one exists and a monogram tile where it doesn't, so the rows stay
+even either way.
+
+Two useful things fell out of the research:
+
+- **Tripleblue is `triple.blue` — AI agents for property management** (HOA / VvE
+  / WEG). That means **DMS = Document Management System**, and the "DMS Germany
+  counterpart" is the German-market build. I've left the site wording as yours;
+  say the word and I'll make it explicit.
+- **Bowlsmaster is Fairtree Bowls Master**, a bowls club management app.
+
+## 4. Live site (CRA) — fixed in place
 
 The current site had problems worth fixing regardless of the rebuild.
 
@@ -130,7 +160,7 @@ and the API key never reaches the browser.
 
 ---
 
-## 4. The rebuild — `portfolio-next/`
+## 5. The rebuild — `portfolio-next/`
 
 Next.js 16.2.12, React 19, Tailwind v4, TypeScript strict. See
 `portfolio-next/README.md` for how it's put together.
@@ -207,7 +237,7 @@ site's internals rather than separate experiments.
 
 ---
 
-## 5. Swapping the rebuild in
+## 6. Swapping the rebuild in
 
 I have not done this — it changes what deploys, and you should look at it first.
 

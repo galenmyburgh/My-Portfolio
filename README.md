@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="portfolio-next/public/logos/codelyn.svg" width="76" alt="" />
 
-## Available Scripts
+# galenmyburgh.com
 
-In the project directory, you can run:
+**A portfolio that tries to be a portfolio piece.**
 
-### `npm start`
+Mobile &amp; web developer in Pretoria — Flutter and React, payments and NFC, AI products.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[**Live site**](https://galenmyburgh.com) · [Case studies](https://galenmyburgh.com/work) · [About](https://galenmyburgh.com/about) · [Lab](https://galenmyburgh.com/lab)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br />
 
-### `npm test`
+![Next.js](https://img.shields.io/badge/Next.js-16.2-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19-087EA4?style=for-the-badge&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Three.js](https://img.shields.io/badge/three.js-WebGL-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
-### `npm run build`
+<table>
+<tr>
+<td align="center"><strong>92–95</strong><br /><sub>Lighthouse<br />performance</sub></td>
+<td align="center"><strong>100</strong><br /><sub>Accessibility</sub></td>
+<td align="center"><strong>100</strong><br /><sub>Best practices</sub></td>
+<td align="center"><strong>100</strong><br /><sub>SEO</sub></td>
+<td align="center"><strong>0</strong><br /><sub>Layout shift</sub></td>
+<td align="center"><strong>0</strong><br /><sub>axe violations<br />14 routes × 2 themes</sub></td>
+</tr>
+</table>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## The idea
 
-### `npm run eject`
+Most developer portfolios *tell* you the person can build things. This one tries to *show* it, and the whole site is arranged around one decision:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> **Every visual element has to carry information. Nothing is decoration.**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The clearest expression of that is the hero. It looks like an ornamental particle field. It is actually the site's primary navigation:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Every node is a technology I've shipped with, sized by depth of experience and coloured by category.
+- Every edge is a **real** relationship from one of the case studies — `Flutter → NFC → Payments` traces the Batsamayi wallet; `Python → OpenCV → Computer Vision` traces the camera analytics work.
+- **Clicking a node filters the case studies below it.**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Adding one entry to [`src/content/tech.ts`](portfolio-next/src/content/tech.ts) makes a technology appear as a constellation node, a filter chip and a tag — one colour, everywhere, from one source of truth.
 
-## Learn More
+## Things worth opening DevTools for
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<table>
+<tr><td width="30%"><strong>3D that costs nothing</strong></td>
+<td>The constellation renders three ways from one deterministic layout: <strong>SVG with real HTML buttons</strong> (the default, a few KB, carries the whole interaction), <strong>WebGL</strong> layered <em>behind those same buttons</em> on capable hardware, and <strong>decorative dots</strong> on phones where 40 overlapping tap targets would be bad UI. The 3D version is never more capable — or less accessible — than the SVG one.</td></tr>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<tr><td><strong>A frame-rate watchdog</strong></td>
+<td>The WebGL layer samples its own frame times and switches itself off if the device can't hold ~40fps. The SVG constellation is already underneath it, so degrading costs the visitor nothing.</td></tr>
 
-### Code Splitting
+<tr><td><strong>No <code>drei</code>, no post-processing</strong></td>
+<td>The glow is a <code>smoothstep</code> in the fragment shader rather than a bloom pass, and the scene is one <code>Points</code> draw call plus one <code>LineSegments</code>. That's a ~129 KB deferred chunk instead of ~250 KB — and it's never in the critical path.</td></tr>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<tr><td><strong>One motion switch</strong></td>
+<td>A blocking script sets <code>data-theme</code> and <code>data-motion</code> on <code>&lt;html&gt;</code> before first paint. CSS and JavaScript read the <em>same two attributes</em>, so they cannot disagree about whether to animate. Components read them via <code>useSyncExternalStore</code> rather than mirroring them into React state.</td></tr>
 
-### Analyzing the Bundle Size
+<tr><td><strong>Fails visible, not blank</strong></td>
+<td>Scroll-reveal is guarded behind <code>html.js</code>. If JavaScript fails, content is simply <em>visible</em> — the previous version of this site left the entire page at <code>opacity: 0</code> in that case.</td></tr>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<tr><td><strong>Self-laying-out diagrams</strong></td>
+<td>Case studies describe their architecture as nodes and edges only. A longest-path layering assigns columns at render time and the diagram draws itself in on scroll, so adding a service is one line of data rather than a coordinate rewrite.</td></tr>
 
-### Making a Progressive Web App
+<tr><td><strong>Placeholders can't ship</strong></td>
+<td>Unverified metrics are marked <code>needsInput</code> in the content layer. They render visibly unfinished in development and are <strong>stripped from production builds</strong>, so a <code>NUMBER NEEDED</code> can never reach a visitor.</td></tr>
+</table>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Stack
 
-### Advanced Configuration
+| | |
+| --- | --- |
+| **Framework** | Next.js 16.2 (App Router, React 19, Turbopack) |
+| **Language** | TypeScript, strict |
+| **Styling** | Tailwind v4 — tokens as CSS custom properties, zero runtime |
+| **3D** | three.js directly, custom GLSL, behind a capability gate |
+| **Content** | Typed modules — no CMS, no markdown pipeline |
+| **Forms** | Server Action + Resend, with honeypot and rate limiting |
+| **Quality** | ESLint, `tsc --noEmit`, axe via Playwright |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Running it
 
-### Deployment
+```bash
+cd portfolio-next
+npm install
+npm run dev
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| Script | |
+| --- | --- |
+| `npm run dev` | Dev server |
+| `npm run build` | Production build |
+| `npm run check` | Typecheck → lint → build |
+| `npm run audit:a11y` | axe on every route, both themes, non-zero exit on any violation |
 
-### `npm run build` fails to minify
+Full detail in [`portfolio-next/README.md`](portfolio-next/README.md).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Two budgets I didn't hit
+
+Worth stating plainly, because a portfolio that only reports its wins isn't evidence of anything:
+
+- **First-load JS is ~165 KB gzipped** against a 130 KB target. A route with almost no client code of its own measures ~152 KB — that's the Next 16 + React 19 floor. Application code is ~13 KB of it. The target isn't reachable on this framework.
+- **Lighthouse reports LCP ~3.0 s** against a 2.0 s target. *Observed* LCP is ~109 ms; the 3.0 s figure is Lighthouse's simulated slow-4G projection of that same framework payload. It comes out identical on desktop, mobile and every route — the signature of the model rather than the page.
+
+Both are framework weight. Fixing them is a framework conversation, not a tuning one.
+
+## Repo layout
+
+```
+portfolio-next/          The site
+  src/content/           All copy, as typed data — tech graph, case studies, career
+  src/components/        UI, including the three constellation renderers
+  src/lib/               Deterministic layout, capability detection, site config
+  scripts/a11y.mjs       The accessibility gate
+src/, public/            The previous Create React App site, kept until cutover
+```
+
+<div align="center">
+<sub>Built with Next.js and too much attention to frame time.</sub>
+</div>
